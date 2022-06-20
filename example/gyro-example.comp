@@ -1,0 +1,1257 @@
+Composition {
+	CurrentTime = 0,
+	RenderRange = { 0, 573 },
+	GlobalRange = { 0, 573 },
+	CurrentID = 1005,
+	HiQ = true,
+	PlaybackUpdateMode = 0,
+	Version = "Fusion Studio 18.0 build 26",
+	SavedOutputs = 2,
+	HeldTools = 0,
+	DisabledTools = 0,
+	LockedTools = 0,
+	AudioOffset = 0,
+	Resumable = true,
+	OutputClips = {
+	},
+	Tools = {
+		Loader1_2 = Loader {
+			Clips = {
+				Clip {
+					ID = "Clip1",
+					Filename = "Comp:\\VID_20220615_110533_00_001(1)_H.264.mov",
+					FormatID = "QuickTimeMovies",
+					Length = 574,
+					Multiframe = true,
+					TrimIn = 0,
+					TrimOut = 573,
+					ExtendFirst = 0,
+					ExtendLast = 0,
+					Loop = 1,
+					AspectMode = 0,
+					Depth = 0,
+					TimeCode = 0,
+					GlobalStart = 0,
+					GlobalEnd = 573
+				}
+			},
+			CtrlWZoom = false,
+			Inputs = {
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1485, -313.5 } },
+		},
+		Loader1 = Loader {
+			Clips = {
+				Clip {
+					ID = "Clip1",
+					Filename = "UFOSweden\\VFX\\Shots\\Test\\360 gyro\\Material\\GX010966.MP4",
+					FormatID = "QuickTimeMovies",
+					Length = 304,
+					Multiframe = true,
+					TrimIn = 0,
+					TrimOut = 303,
+					ExtendFirst = 0,
+					ExtendLast = 0,
+					Loop = 1,
+					AspectMode = 0,
+					Depth = 0,
+					TimeCode = 0,
+					GlobalStart = 0,
+					GlobalEnd = 303
+				}
+			},
+			Inputs = {
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1430, -82.5 } },
+		},
+		Text3D1 = Text3D {
+			Inputs = {
+				["Transform3DOp.Translate.Y"] = Input { Value = -6.3, },
+				["Transform3DOp.Translate.Z"] = Input { Value = -8.8762274376225, },
+				StyledText = Input { Value = "Hej!", },
+				Font = Input { Value = "Open Sans", },
+				Style = Input { Value = "Bold", },
+				VerticalTopCenterBottom = Input { Value = 1, },
+				VerticalJustification = Input { Value = 3, },
+				VerticalJustificationNew = Input { Value = 3, },
+				HorizontalJustificationNew = Input { Value = 3, },
+				ExtrusionProfile = Input {
+					SourceOp = "Text3D1ExtrusionProfile",
+					Source = "Value",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 1155, -181.5 } },
+		},
+		Duplicate3D1 = Duplicate3D {
+			Inputs = {
+				LastCopy = Input { Value = 9, },
+				["Rotate.Y"] = Input { Value = 80.3, },
+				SceneInput = Input {
+					SourceOp = "Text3D1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 1265, -181.5 } },
+		},
+		vTextReadLine1 = Fuse.vTextReadLine {
+			Inputs = {
+				Index = Input {
+					SourceOp = "vNumberAdd1",
+					Source = "Output",
+				},
+				Input = Input {
+					SourceOp = "vTextFromFile1",
+					Source = "Output",
+				},
+				DisplayLines = Input { Value = 16, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 715, 16.5 } },
+		},
+		vNumberCompReqTime1 = Fuse.vNumberCompReqTime {
+			ViewInfo = OperatorInfo { Pos = { 715, -82.5 } },
+		},
+		vTextFromArray1_1 = Fuse.vTextFromArray {
+			NameSet = true,
+			Inputs = {
+				Input = Input {
+					SourceOp = "vTextSubSplit1",
+					Source = "Output",
+				},
+				Index = Input { Value = 3, },
+				ShowInput = Input { Value = 0, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1045, -16.5 } },
+		},
+		vTextFromArray1_9 = Fuse.vTextFromArray {
+			NameSet = true,
+			Inputs = {
+				Input = Input {
+					SourceOp = "vTextSubSplit1_2",
+					Source = "Output",
+				},
+				Index = Input { Value = 4, },
+				ShowInput = Input { Value = 0, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1045, -247.5 } },
+		},
+		vNumberAdd1_2 = Fuse.vNumberAdd {
+			Inputs = {
+				Term1 = Input {
+					SourceOp = "vNumberCompReqTime1_2",
+					Source = "Output",
+				},
+				Term2 = Input { Value = 2, },
+				ShowInput = Input { Value = 1, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 715, -313.5 } },
+		},
+		vTextMerge1_2 = Fuse.vTextMerge {
+			Inputs = {
+				Which = Input { Value = 1, },
+				Text1 = Input {
+					SourceOp = "vTextReadLine1_2",
+					Source = "Output",
+				},
+				Separator = Input {
+					Value = Text {
+					},
+				},
+				Text2 = Input {
+					SourceOp = "vTextCreate1_2",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 825, -247.5 } },
+		},
+		Transform3D1_1 = Transform3D {
+			Inputs = {
+				SceneInput = Input {
+					SourceOp = "Camera3D1_1",
+					Source = "Output",
+				},
+				["Transform3DOp.Rotate.RotOrder"] = Input { Value = FuID { "ZYX" }, },
+				["Transform3DOp.Rotate.X"] = Input {
+					SourceOp = "xGyro",
+					Source = "Output",
+				},
+				["Transform3DOp.Rotate.Y"] = Input {
+					SourceOp = "yGyro",
+					Source = "Output",
+				},
+				["Transform3DOp.Rotate.Z"] = Input {
+					SourceOp = "zGyro",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 1430, 16.5 } },
+		},
+		xGyro_2 = Fuse.vNumberMultiply {
+			NameSet = true,
+			CurrentSettings = 2,
+			CustomData = {
+				Settings = {
+					[1] = {
+						Tools = ordered() {
+							xGyro = Fuse.vNumberMultiply {
+								Inputs = {
+									ShowInput = Input { Value = 1 },
+									Factor2 = Input { Value = 1 },
+									Factor1 = Input {
+										SourceOp = "vNumberFromText1_1",
+										Source = "Output"
+									}
+								},
+								CtrlWZoom = false,
+								NameSet = true,
+								ViewInfo = OperatorInfo { Pos = { 1265, -49.5 } },
+								CustomData = {
+								}
+							}
+						}
+					}
+				}
+			},
+			Inputs = {
+				Factor1 = Input {
+					SourceOp = "vNumberFromText1_8",
+					Source = "Output",
+				},
+				Factor2 = Input { Value = -1, },
+				ShowInput = Input { Value = 1, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1265, -313.5 } },
+		},
+		vTextFromArray1 = Fuse.vTextFromArray {
+			NameSet = true,
+			Inputs = {
+				Input = Input {
+					SourceOp = "vTextSubSplit1",
+					Source = "Output",
+				},
+				Index = Input { Value = 2, },
+				ShowInput = Input { Value = 0, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1045, -49.5 } },
+		},
+		zGyro_2 = Fuse.vNumberMultiply {
+			NameSet = true,
+			CustomData = {
+				Settings = {
+					[2] = {
+						Tools = ordered() {
+							zGyro = Fuse.vNumberMultiply {
+								Inputs = {
+									ShowInput = Input { Value = 1 },
+									Factor2 = Input { Value = -1 },
+									Factor1 = Input {
+										SourceOp = "vNumberFromText1_2",
+										Source = "Output"
+									}
+								},
+								CtrlWZoom = false,
+								NameSet = true,
+								ViewInfo = OperatorInfo { Pos = { 1265, 16.5 } },
+								CustomData = {
+								}
+							}
+						}
+					}
+				}
+			},
+			Inputs = {
+				Factor1 = Input {
+					SourceOp = "vNumberFromText1_6",
+					Source = "Output",
+				},
+				Factor2 = Input { Value = 1, },
+				ShowInput = Input { Value = 1, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1265, -247.5 } },
+		},
+		Merge3D1 = Merge3D {
+			Inputs = {
+				SceneInput1 = Input {
+					SourceOp = "Transform3D1_4",
+					Source = "Output",
+				},
+				SceneInput2 = Input {
+					SourceOp = "Duplicate3D1_1",
+					Source = "Data3D",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 1485, -181.5 } },
+		},
+		Duplicate3D1_1 = Duplicate3D {
+			Inputs = {
+				LastCopy = Input { Value = 5, },
+				["Translate.Y"] = Input { Value = 3.048, },
+				SceneInput = Input {
+					SourceOp = "Duplicate3D1",
+					Source = "Data3D",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 1375, -181.5 } },
+		},
+		vNumberFromText1_1 = Fuse.vNumberFromText {
+			Inputs = {
+				Text = Input {
+					SourceOp = "vTextFromArray1",
+					Source = "Output",
+				},
+				ShowInput = Input { Value = 1, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1155, -49.5 } },
+		},
+		vTextSubSplit1_2 = Fuse.vTextSubSplit {
+			Inputs = {
+				Text = Input {
+					SourceOp = "vTextMerge1_2",
+					Source = "Output",
+				},
+				Pattern = Input { Value = "(.-),", },
+				ShowInput = Input { Value = 0, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 935, -247.5 } },
+		},
+		vNumberCompReqTime1_2 = Fuse.vNumberCompReqTime {
+			ViewInfo = OperatorInfo { Pos = { 715, -346.5 } },
+		},
+		vTextFromFile1 = Fuse.vTextFromFile {
+			Inputs = {
+				Input = Input { Value = "UFOSweden\\VFX\\Shots\\Test\\360 gyro\\Material\\GX010966.csv", },
+			},
+			ViewInfo = OperatorInfo { Pos = { 605, 16.5 } },
+		},
+		Text3D1ExtrusionProfile = LUTBezier {
+			KeyColorSplines = {
+				[0] = {
+					[0] = { 0, RH = { 0.0666666666666667, 0.333333333333333 }, Flags = { Linear = true } },
+					[0.2] = { 1, LH = { 0.133333333333333, 0.666666666666667 }, RH = { 0.4, 1 }, Flags = { Linear = true } },
+					[0.8] = { 1, LH = { 0.6, 1 }, RH = { 0.866666666666667, 0.666666666666667 }, Flags = { Linear = true } },
+					[1] = { 0, LH = { 0.933333333333333, 0.333333333333333 }, Flags = { Linear = true } }
+				}
+			},
+			SplineColor = { Red = 192, Green = 128, Blue = 64 },
+			CtrlWZoom = false,
+		},
+		vTextFromArray1_7 = Fuse.vTextFromArray {
+			NameSet = true,
+			Inputs = {
+				Input = Input {
+					SourceOp = "vTextSubSplit1_2",
+					Source = "Output",
+				},
+				Index = Input { Value = 2, },
+				ShowInput = Input { Value = 0, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1045, -313.5 } },
+		},
+		vTextFromArray1_8 = Fuse.vTextFromArray {
+			NameSet = true,
+			Inputs = {
+				Input = Input {
+					SourceOp = "vTextSubSplit1_2",
+					Source = "Output",
+				},
+				Index = Input { Value = 3, },
+				ShowInput = Input { Value = 0, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1045, -280.5 } },
+		},
+		Camera3D1_3 = Camera3D {
+			Inputs = {
+				AoV = Input { Value = 90, },
+				FLength = Input { Value = 5.94, },
+				["Stereo.Mode"] = Input { Value = FuID { "OffAxis" }, },
+				FilmGate = Input { Value = FuID { "BMD_URSA_4K_16x9" }, },
+				ApertureW = Input { Value = 0.831496062992126, },
+				ApertureH = Input { Value = 0.467716535433071, },
+				IDepth = Input { Value = 272.8, },
+				["SurfacePlaneInputs.ObjectID.ObjectID"] = Input { Value = 1, },
+				ImageInput = Input {
+					SourceOp = "Loader1_2",
+					Source = "Output",
+				},
+				["MtlStdInputs.MaterialID"] = Input { Value = 1, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1485, -280.5 } },
+		},
+		vTextCreate1 = Fuse.vTextCreate {
+			Inputs = {
+				Text = Input { Value = ",", },
+			},
+			ViewInfo = OperatorInfo { Pos = { 825, -16.5 } },
+		},
+		vNumberAdd1 = Fuse.vNumberAdd {
+			Inputs = {
+				Term1 = Input {
+					SourceOp = "vNumberCompReqTime1",
+					Source = "Output",
+				},
+				Term2 = Input { Value = 2, },
+				ShowInput = Input { Value = 1, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 715, -49.5 } },
+		},
+		vTextCreate1_2 = Fuse.vTextCreate {
+			Inputs = {
+				Text = Input { Value = ",", },
+			},
+			ViewInfo = OperatorInfo { Pos = { 825, -280.5 } },
+		},
+		Transform3D1_5 = Transform3D {
+			Inputs = {
+				SceneInput = Input {
+					SourceOp = "Camera3D1_3",
+					Source = "Output",
+				},
+				["Transform3DOp.Rotate.RotOrder"] = Input { Value = FuID { "ZYX" }, },
+				["Transform3DOp.Rotate.X"] = Input {
+					SourceOp = "xGyro_2",
+					Source = "Output",
+				},
+				["Transform3DOp.Rotate.Y"] = Input {
+					SourceOp = "yGyro_2",
+					Source = "Output",
+				},
+				["Transform3DOp.Rotate.Z"] = Input {
+					SourceOp = "zGyro_2",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 1485, -247.5 } },
+		},
+		Camera3D1_1 = Camera3D {
+			Inputs = {
+				AoV = Input { Value = 75, },
+				FLength = Input { Value = 7.74115871467676, },
+				["Stereo.Mode"] = Input { Value = FuID { "OffAxis" }, },
+				FilmGate = Input { Value = FuID { "BMD_URSA_4K_16x9" }, },
+				ApertureW = Input { Value = 0.831496062992126, },
+				ApertureH = Input { Value = 0.467716535433071, },
+				IDepth = Input { Value = 272.8, },
+				["SurfacePlaneInputs.ObjectID.ObjectID"] = Input { Value = 1, },
+				ImageInput = Input {
+					SourceOp = "Loader1",
+					Source = "Output",
+				},
+				["MtlStdInputs.MaterialID"] = Input { Value = 1, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1430, -16.5 } },
+		},
+		vTextMerge1 = Fuse.vTextMerge {
+			Inputs = {
+				Which = Input { Value = 1, },
+				Text1 = Input {
+					SourceOp = "vTextReadLine1",
+					Source = "Output",
+				},
+				Separator = Input {
+					Value = Text {
+					},
+				},
+				Text2 = Input {
+					SourceOp = "vTextCreate1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 825, 16.5 } },
+		},
+		vTextFromArray1_2 = Fuse.vTextFromArray {
+			NameSet = true,
+			Inputs = {
+				Input = Input {
+					SourceOp = "vTextSubSplit1",
+					Source = "Output",
+				},
+				Index = Input { Value = 4, },
+				ShowInput = Input { Value = 0, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1045, 16.5 } },
+		},
+		vNumberFromText1 = Fuse.vNumberFromText {
+			Inputs = {
+				Text = Input {
+					SourceOp = "vTextFromArray1_1",
+					Source = "Output",
+				},
+				ShowInput = Input { Value = 1, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1155, -16.5 } },
+		},
+		xGyro = Fuse.vNumberMultiply {
+			NameSet = true,
+			CurrentSettings = 2,
+			CustomData = {
+				Settings = {
+					[1] = {
+						Tools = ordered() {
+							xGyro = Fuse.vNumberMultiply {
+								Inputs = {
+									ShowInput = Input { Value = 1 },
+									Factor2 = Input { Value = 1 },
+									Factor1 = Input {
+										SourceOp = "vNumberFromText1_1",
+										Source = "Output"
+									}
+								},
+								CtrlWZoom = false,
+								NameSet = true,
+								ViewInfo = OperatorInfo { Pos = { 1265, -49.5 } },
+								CustomData = {
+								}
+							}
+						}
+					}
+				}
+			},
+			Inputs = {
+				Factor1 = Input {
+					SourceOp = "vNumberFromText1_1",
+					Source = "Output",
+				},
+				Factor2 = Input { Value = -1, },
+				ShowInput = Input { Value = 1, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1265, -49.5 } },
+		},
+		yGyro = Fuse.vNumberMultiply {
+			NameSet = true,
+			CustomData = {
+				Settings = {
+					[2] = {
+						Tools = ordered() {
+							yGyro = Fuse.vNumberMultiply {
+								Inputs = {
+									ShowInput = Input { Value = 1 },
+									Factor2 = Input { Value = -1 },
+									Factor1 = Input {
+										SourceOp = "vNumberFromText1",
+										Source = "Output"
+									}
+								},
+								CtrlWZoom = false,
+								NameSet = true,
+								ViewInfo = OperatorInfo { Pos = { 1265, -16.5 } },
+								CustomData = {
+								}
+							}
+						}
+					}
+				}
+			},
+			Inputs = {
+				Factor1 = Input {
+					SourceOp = "vNumberFromText1",
+					Source = "Output",
+				},
+				Factor2 = Input { Value = 1, },
+				ShowInput = Input { Value = 1, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1265, -16.5 } },
+		},
+		vNumberFromText1_2 = Fuse.vNumberFromText {
+			Inputs = {
+				Text = Input {
+					SourceOp = "vTextFromArray1_2",
+					Source = "Output",
+				},
+				ShowInput = Input { Value = 1, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1155, 16.5 } },
+		},
+		zGyro = Fuse.vNumberMultiply {
+			NameSet = true,
+			CustomData = {
+				Settings = {
+					[2] = {
+						Tools = ordered() {
+							zGyro = Fuse.vNumberMultiply {
+								Inputs = {
+									ShowInput = Input { Value = 1 },
+									Factor2 = Input { Value = -1 },
+									Factor1 = Input {
+										SourceOp = "vNumberFromText1_2",
+										Source = "Output"
+									}
+								},
+								CtrlWZoom = false,
+								NameSet = true,
+								ViewInfo = OperatorInfo { Pos = { 1265, 16.5 } },
+								CustomData = {
+								}
+							}
+						}
+					}
+				}
+			},
+			Inputs = {
+				Factor1 = Input {
+					SourceOp = "vNumberFromText1_2",
+					Source = "Output",
+				},
+				Factor2 = Input { Value = 1, },
+				ShowInput = Input { Value = 1, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1265, 16.5 } },
+		},
+		vNumberFromText1_7 = Fuse.vNumberFromText {
+			Inputs = {
+				Text = Input {
+					SourceOp = "vTextFromArray1_8",
+					Source = "Output",
+				},
+				ShowInput = Input { Value = 1, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1155, -280.5 } },
+		},
+		Renderer3D1 = Renderer3D {
+			CtrlWZoom = false,
+			CustomData = {
+				ToolVersion = 2
+			},
+			Inputs = {
+				GlobalOut = Input { Value = 573, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				SceneInput = Input {
+					SourceOp = "Merge3D1",
+					Source = "Output",
+				},
+				RendererType = Input { Value = FuID { "RendererOpenGL" }, },
+				["RendererOpenGL.AntiAliasing.Channels.RGBA.HighQuality.Enable"] = Input { Value = 1, },
+				["RendererOpenGL.AntiAliasing.Presets.Color.Supersampling.HighQuality.RateX"] = Input { Value = 3, },
+				["RendererOpenGL.AntiAliasing.Presets.Color.Supersampling.HighQuality.RateY"] = Input { Value = 3, },
+				["RendererOpenGL.AntiAliasing.Presets.Color.Multisampling.LowQuality.SampleCount"] = Input { Value = 2, },
+				["RendererOpenGL.AntiAliasing.Presets.Color.Multisampling.HighQuality.SampleCount"] = Input { Value = 3, },
+				["RendererOpenGL.AntiAliasing.Presets.Aux.Supersampling.HighQuality.RateX"] = Input { Value = 3, },
+				["RendererOpenGL.AntiAliasing.Presets.Aux.Supersampling.HighQuality.RateY"] = Input { Value = 3, },
+				["RendererOpenGL.AntiAliasing.Presets.Aux.Multisampling.LowQuality.SampleCount"] = Input { Value = 2, },
+				["RendererOpenGL.AntiAliasing.Presets.Aux.Multisampling.HighQuality.SampleCount"] = Input { Value = 3, },
+				["RendererOpenGL.AccumQuality"] = Input { Value = 32, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1595, -181.5 } },
+			SubInputsData = {
+				RendererOpenGL = {
+					Version = 1
+				}
+			}
+		},
+		yGyro_2 = Fuse.vNumberMultiply {
+			NameSet = true,
+			CustomData = {
+				Settings = {
+					[2] = {
+						Tools = ordered() {
+							yGyro = Fuse.vNumberMultiply {
+								Inputs = {
+									ShowInput = Input { Value = 1 },
+									Factor2 = Input { Value = -1 },
+									Factor1 = Input {
+										SourceOp = "vNumberFromText1",
+										Source = "Output"
+									}
+								},
+								CtrlWZoom = false,
+								NameSet = true,
+								ViewInfo = OperatorInfo { Pos = { 1265, -16.5 } },
+								CustomData = {
+								}
+							}
+						}
+					}
+				}
+			},
+			Inputs = {
+				Factor1 = Input {
+					SourceOp = "vNumberFromText1_7",
+					Source = "Output",
+				},
+				Factor2 = Input { Value = 1, },
+				ShowInput = Input { Value = 1, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1265, -280.5 } },
+		},
+		vNumberFromText1_8 = Fuse.vNumberFromText {
+			Inputs = {
+				Text = Input {
+					SourceOp = "vTextFromArray1_7",
+					Source = "Output",
+				},
+				ShowInput = Input { Value = 1, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1155, -313.5 } },
+		},
+		vTextSubSplit1 = Fuse.vTextSubSplit {
+			Inputs = {
+				Text = Input {
+					SourceOp = "vTextMerge1",
+					Source = "Output",
+				},
+				Pattern = Input { Value = "(.-),", },
+				ShowInput = Input { Value = 0, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 935, 16.5 } },
+		},
+		vTextReadLine1_2 = Fuse.vTextReadLine {
+			Inputs = {
+				Index = Input {
+					SourceOp = "vNumberAdd1_2",
+					Source = "Output",
+				},
+				Input = Input {
+					SourceOp = "vTextFromFile1_2",
+					Source = "Output",
+				},
+				DisplayLines = Input { Value = 16, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 715, -247.5 } },
+		},
+		vNumberFromText1_6 = Fuse.vNumberFromText {
+			Inputs = {
+				Text = Input {
+					SourceOp = "vTextFromArray1_9",
+					Source = "Output",
+				},
+				ShowInput = Input { Value = 1, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1155, -247.5 } },
+		},
+		Transform3D1_4 = Transform3D {
+			Inputs = {
+				SceneInput = Input {
+					SourceOp = "Transform3D1_5",
+					Source = "Output",
+				},
+				["Transform3DOp.Rotate.RotOrder"] = Input { Value = FuID { "ZYX" }, },
+				["Transform3DOp.Rotate.X"] = Input { Value = -0.3348257458474, },
+				["Transform3DOp.Rotate.Y"] = Input { Value = 0.1385575581877, },
+				["Transform3DOp.Rotate.Z"] = Input { Value = 179.8606, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1485, -214.5 } },
+		},
+		vTextFromFile1_2 = Fuse.vTextFromFile {
+			Inputs = {
+				Input = Input { Value = "UFOSweden\\VFX\\Shots\\Test\\360 gyro\\Material\\VID_20220615_110533_00_001.csv", },
+			},
+			ViewInfo = OperatorInfo { Pos = { 605, -247.5 } },
+		}
+	},
+	Frames = {
+		{
+			FrameTypeID = "ChildFrame",
+			Mode = 3,
+			LayoutPreset = 0,
+			PresetName = "Default",
+			Left = 0,
+			Top = 27,
+			Width = 2560,
+			Height = 1304,
+			ZoneInfo = {
+				["!Right"] = {
+				},
+				["!Left"] = {
+				},
+				AuxLeft = { Expanded = true },
+				Right = { Expanded = true, },
+				Left = { Expanded = false, },
+				AuxRight = { Expanded = true }
+			},
+			ViewInfo = {
+				Viewer1 = { Show = true, RatioY = 0.01, RatioX = 1, },
+				InnerLeft = {
+				},
+				MainSplit = {
+					RatioX = 100,
+					RatioY = 0.934872217642209,
+				},
+				CenterSplit = {
+					RatioX = 0.794103883949462,
+					RatioY = 100,
+				},
+				Viewer2 = { Show = false, Adjust = true, RatioY = 0.01, MRU = 0, RatioX = 1, },
+				Comments = { Show = false },
+				Time = { Show = true, RatioX = 100, },
+				InnerColumns = {
+					RatioX = 100,
+					RatioY = 2.06512778235779,
+				},
+				Keyframes = { Show = false, Adjust = true, RatioY = 100, MRU = 0, RatioX = 1, },
+				LayoutStrip = { Show = true, RatioX = 100, },
+				Inspector = { Show = true, RatioY = 1, RatioX = 100, },
+				InnerRight = {
+				},
+				Clips = { Show = false, },
+				OuterColumns = {
+					RatioX = 100,
+					RatioY = 1,
+				},
+				Effects = { Show = false, },
+				ActionStrip = { Show = true, RatioX = 100, },
+				Metadata = { Show = false, },
+				OuterLeft = {
+				},
+				ViewerSplit = {
+					RatioX = 100,
+					RatioY = 1,
+				},
+				Nodes = { Show = true, RatioY = 100, RatioX = 1, },
+				OuterRight = {
+					RatioY = 100,
+					PixelX = 860,
+				},
+				MediaPool = { Show = false, },
+				Spline = { Show = false, Adjust = true, RatioY = 100, MRU = 0, RatioX = 1, }
+			},
+			Views = ordered() {
+				Effects = MultiView {
+					Active = "EffectView",
+					ViewList = ordered() {
+						EffectView = "EffectView"
+					},
+				},
+				Nodes = MultiView {
+					Active = "FlowView",
+					ViewList = ordered() {
+						FlowView = "FlowView"
+					},
+					FlowView = FlowView {
+						Flags = {
+							Navigator = true,
+							AutoHideNavigator = true,
+							GridSnap = true,
+							AutoSnap = true,
+							RemoveRouters = true
+						},
+						NavigatorSize = { 200, 140 },
+						Direction = "Vertical",
+						PipeStyle = "Direct",
+						RootScale = 0.914211,
+						RootOffset = { -598.265, 350.65 }
+					}
+				},
+				Keyframes = MultiView {
+					Active = "TimelineView",
+					ViewList = ordered() {
+						TimelineView = "TimelineView"
+					},
+					TimelineView = TimelineView {
+						TreeControlState = {
+						},
+						DisplayMode = "All Tools",
+						ShowCurrentTimeTools = false,
+						Filter = "Show All",
+						ShowSelectedTools = true,
+						ShowAnimatedToolsOnly = true,
+						ShowEditBoxes = false,
+						KeyFrameView = {
+							Position = { Left = 232, Bottom = 343 },
+							ScaleX = 1.22865497076023,
+							OffsetX = -28.2590643274854,
+							OffsetY = 0,
+							AutoScaling = "scroll",
+							AutoSnapTo = "frame",
+							AutoSnapToGuidelines = false,
+							GuidelinesGrabEnabled = true,
+							GuidelinesSnapTo = "none"
+						},
+						Spreadsheet = { LeftPos = 232, Visible = false }
+					}
+				},
+				Spline = MultiView {
+					Active = "SplineView",
+					ViewList = ordered() {
+						SplineView = "SplineEditorView"
+					},
+					SplineView = SplineEditorView {
+						LeftPos = 264,
+						ScaleX = 0.2,
+						ScaleY = 0.00338983050847458,
+						OffsetX = -3.4,
+						OffsetY = 0,
+						AutoScaling = "scroll",
+						AutoSnapTo = "frame",
+						AutoSnapToGuidelines = false,
+						GuidelinesSnapTo = "frame",
+						ShowKeyMarkers = false,
+						IndependentHandles = false,
+						ShowNonSplineModifiers = false,
+						GuidelinesGrabEnabled = true,
+						ShowOneToolOnly = false,
+						ShowSelectedTools = false,
+						ShowAllInputs = false,
+						Filter = "Show All"
+					}
+				},
+				Inspector = MultiView {
+					Active = "Tools",
+					ViewList = ordered() {
+						Tools = "ControlView",
+						Modifiers = "ModifierView"
+					},
+				},
+				Viewer1 = MultiView {
+					Active = "LeftView",
+					ViewList = ordered() {
+						LeftView = "PreviewContainer"
+					},
+				},
+				Viewer2 = MultiView {
+					Active = "RightView",
+					ViewList = ordered() {
+						RightView = "PreviewContainer"
+					},
+				},
+				Time = "TimeView",
+				ActionStrip = "ActionStripView",
+				LayoutStrip = "LayoutStripView"
+			},
+			Layout = {
+				{ ID = "LayoutStrip", FixedY = 36, Resolve = false, Flat = true },
+				{
+					{
+						{ ID = "MediaPool", Fusion = false, RatioX = 1 },
+						{ ID = "Effects", RatioX = 1 },
+						Zone = "Left",
+						Rows = 2,
+						PaneID = "OuterLeft",
+						PixelX = 420
+					},
+					{
+						{
+							{
+								{ ID = "MediaPool", Fusion = false, RatioX = 1 },
+								{ ID = "Effects", RatioX = 1 },
+								PaneID = "InnerLeft",
+								MaxViews = 1,
+								PixelX = 420,
+								Rows = 2,
+								Zone = "!Left"
+							},
+							{
+								{
+									{ ID = "Viewer1", RatioY = 0.01, RatioX = 1 },
+									{ ID = "Viewer2", RatioX = 1 },
+									RatioY = 1,
+									Columns = 2,
+									PaneID = "ViewerSplit"
+								},
+								{ ID = "Time", FixedY = 83, Flat = true },
+								RatioX = 1,
+								Rows = 2
+							},
+							{
+								{ ID = "Inspector", RatioY = 1 },
+								{ ID = "Metadata", RatioY = 1, Fusion = false },
+								PaneID = "InnerRight",
+								MaxViews = 1,
+								PixelX = 420,
+								Rows = 2,
+								Zone = "!Right"
+							},
+							RatioY = 2,
+							Columns = 3,
+							PaneID = "InnerColumns"
+						},
+						{ ID = "ActionStrip", FixedY = 50, Flat = true },
+						{
+							{ ID = "Nodes", RatioX = 1 },
+							{ ID = "Spline", RatioX = 1 },
+							{ ID = "Keyframes", RatioX = 1 },
+							RatioY = 1,
+							Columns = 3,
+							PaneID = "MainSplit"
+						},
+						{ Fusion = false, ID = "Clips", LARGE_FixedY = 160, MEDIUM_FixedY = 138, SMALL_FixedY = 110 },
+						RatioX = 1,
+						Rows = 4,
+						PaneID = "CenterSplit"
+					},
+					{
+						{ ID = "Inspector", RatioY = 1 },
+						{ ID = "Metadata", RatioY = 1, Fusion = false },
+						Zone = "Right",
+						Rows = 2,
+						PaneID = "OuterRight",
+						PixelX = 420
+					},
+					RatioY = 1,
+					Columns = 3,
+					PaneID = "OuterColumns"
+				},
+				RatioX = 1,
+				Rows = 2,
+				RatioY = 1
+			},
+			TopBar = {
+				Left = { "Left", "MediaPool", "Effects", "Clips", "Nodes", "Console" },
+				Right = { "Spline", "Keyframes", "Metadata", "Inspector", "Right" }
+			}
+		}
+	},
+	Prefs = {
+		Comp = {
+			Views = {
+				RightView = {
+					Viewer = {
+						EnableLUTs = true,
+						LUTPlugin = "OCIOColorSpaceViewLUT",
+						ScaleMode = 1
+					},
+					SideB = {
+						PrevCtrlInactiveColor = 4278255360,
+						PickW = 1,
+						PickH = 1,
+						PrevCtrlActiveColor = 4278190335,
+						Viewer = {
+							EnableLUTs = true,
+							LUTPlugin = "OCIOColorSpaceViewLUT",
+							NearZ = 0,
+							FitMarginX = 0,
+							FitMarginType = 0,
+							FarZ = -1000,
+							FitMarginY = 0
+						}
+					},
+					View3D = {
+						CamFront = {
+							Rotation = {
+								Y = 0,
+								X = 0,
+								Z = 0
+							},
+							Scale = 1,
+							Position = {
+								Y = 0,
+								X = 0,
+								Z = 0
+							}
+						},
+						CamLeft = {
+							Rotation = {
+								Y = 90,
+								X = 0,
+								Z = 0
+							},
+							Scale = 1,
+							Position = {
+								Y = 0,
+								X = 0,
+								Z = 0
+							}
+						},
+						CamPersp = {
+							Rotation = {
+								Y = -30.3999977111816,
+								X = 15.7999992370605,
+								Z = 0
+							},
+							Scale = 0.0625,
+							Position = {
+								Y = -2.42146420478821,
+								X = -2.8276252746582,
+								Z = 7.30723428726196
+							}
+						},
+						CamTop = {
+							Rotation = {
+								Y = 0,
+								X = 90,
+								Z = 0
+							},
+							Scale = 1,
+							Position = {
+								Y = 0,
+								X = 0,
+								Z = 0
+							}
+						},
+						CamRight = {
+							Rotation = {
+								Y = -90,
+								X = 0,
+								Z = 0
+							},
+							Scale = 1,
+							Position = {
+								Y = 0,
+								X = 0,
+								Z = 0
+							}
+						},
+						CameraName = "Perspective"
+					},
+				},
+				LeftView = {
+					Viewer = {
+						EnableLUTs = true,
+						LUTPlugin = "OCIOColorSpaceViewLUT",
+						Channel = 4294967295,
+						DoD = {
+							Show = true
+						},
+						ScaleMode = 1
+					},
+					SideB = {
+						PrevCtrlInactiveColor = 4278255360,
+						PickW = 1,
+						PickH = 1,
+						PrevCtrlActiveColor = 4278190335,
+						Viewer = {
+							EnableLUTs = true,
+							LUTPlugin = "OCIOColorSpaceViewLUT",
+							NearZ = 0,
+							FitMarginX = 0,
+							FitMarginType = 0,
+							FarZ = -1000,
+							FitMarginY = 0
+						}
+					},
+					SubView = {
+						Enabled = false,
+						Navigator = false,
+						Magnifier = false,
+						ID = "GLMetadataViewer",
+						GLHistogramViewer = {
+							AutoBounds = true
+						},
+						GLMetadataViewer = {
+							AutoBounds = true
+						}
+					},
+					View3D = {
+						CamFront = {
+							Rotation = {
+								Y = 0,
+								X = 0,
+								Z = 0
+							},
+							Scale = 1,
+							Position = {
+								Y = 0,
+								X = 0,
+								Z = 0
+							}
+						},
+						CamLeft = {
+							Rotation = {
+								Y = 90,
+								X = 0,
+								Z = 0
+							},
+							Scale = 1,
+							Position = {
+								Y = 0,
+								X = 0,
+								Z = 0
+							}
+						},
+						CamRight = {
+							Rotation = {
+								Y = -90,
+								X = 0,
+								Z = 0
+							},
+							Scale = 1,
+							Position = {
+								Y = 0,
+								X = 0,
+								Z = 0
+							}
+						},
+						CamPersp = {
+							Rotation = {
+								Y = 319.399841308594,
+								X = 25.7999992370605,
+								Z = 0
+							},
+							Scale = 0.0426157079637051,
+							Position = {
+								Y = -4.75740146636963,
+								X = -0.9106764793396,
+								Z = 4.03037118911743
+							}
+						},
+						CamTop = {
+							Rotation = {
+								Y = 0,
+								X = 90,
+								Z = 0
+							},
+							Scale = 1,
+							Position = {
+								Y = 0,
+								X = 0,
+								Z = 0
+							}
+						},
+						CameraName = "Perspective"
+					},
+				},
+				View1 = {
+					Viewer = {
+						EnableLUTs = true,
+						LUTPlugin = "OCIOColorSpaceViewLUT",
+					},
+					PickW = 1,
+					PrevCtrlInactiveColor = 4278255360,
+					FullScreen = false,
+					AlwaysOnTop = true,
+					SideB = {
+						PrevCtrlInactiveColor = 4278255360,
+						PickW = 1,
+						PickH = 1,
+						PrevCtrlActiveColor = 4278190335,
+						Viewer = {
+							EnableLUTs = true,
+							LUTPlugin = "OCIOColorSpaceViewLUT",
+							NearZ = 0,
+							FitMarginX = 0,
+							FitMarginType = 0,
+							FarZ = -1000,
+							FitMarginY = 0
+						}
+					},
+					PickH = 1,
+					PrevCtrlActiveColor = 4278190335
+				},
+			},
+			FrameFormat = {
+				Rate = 24,
+				GuideRatio = 1.77777777777778,
+				DepthFull = 2,
+				DepthPreview = 2,
+				DepthInteractive = 2,
+			},
+			LastFile = "F:\\UFOSweden\\VFX\\Shots\\Test\\360 gyro\\Material\\VID_20220613_084256_00_061.gyroflow",
+			PolyKeyListDlg = {
+				Window = {
+					Left = 1238,
+					Top = 561
+				}
+			},
+			Unsorted = {
+				GlobalEnd = 573
+			},
+			Cluster = {
+				SlaveClasses = "all"
+			},
+			Paths = {
+			},
+			FlowView = {
+				Direction = 1,
+				GridSnap = true,
+			},
+			QuickTime = {
+				Quality = 90,
+			},
+			ChangeStrings = {
+				OldDoResolve = "Unchecked"
+			}
+		}
+	},
+}
+

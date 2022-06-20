@@ -1,11 +1,12 @@
 import json, zlib, sys, struct, csv, os, math, argparse
 
 parser = argparse.ArgumentParser(
-    description='''Convert your GyroFlow stabilization to a CSV file.
+    description='''Convert your Gyroflow stabilization to a CSV file.
+    Make sure to choose "including processed gyro data" when exporting from gyroflow.
     As default it saves out the rotations as Euler rotation (ZYX).
     It also saves out the data for your footages FPS'''
 )
-parser.add_argument("gyroflow_path", help="The path to your GyroFlow file")
+parser.add_argument("gyroflow_path", help="The path to your Gyroflow file")
 parser.add_argument("-s", "--smoothed", help="Calculate from smoothed quaternions",
                     action="store_true")
 parser.add_argument("-q", "--quaternions", help="Save data as quaternions",
@@ -73,31 +74,6 @@ def decode(encoded_str):
             v = -1
     if v+1:
         out += struct.pack('B', (b | v << n) & 255 )
-    return out
-
-def encode(bindata):
-    ### Encode a bytearray to a Base91 string ###
-    b = 0
-    n = 0
-    out = ''
-    for count in range(len(bindata)):
-        byte = bindata[count:count+1]
-        b |= struct.unpack('B', byte)[0] << n
-        n += 8
-        if n>13:
-            v = b & 8191
-            if v > 88:
-                b >>= 13
-                n -= 13
-            else:
-                v = b & 16383
-                b >>= 14
-                n -= 14
-            out += base91_alphabet[v % 91] + base91_alphabet[v // 91]
-    if n:
-        out += base91_alphabet[b % 91]
-        if n>7 or b>90:
-            out += base91_alphabet[b // 91]
     return out
 
 def quaternion_to_euler_angle(x, y, z, w):
@@ -183,28 +159,3 @@ with open(csv_file, 'w', newline='') as csvfile:
     # writing the data rows 
     csvwriter.writerows(csv_rows)
 print("Done")
-
-"""
-# Gyro data
-raw = zlib.decompress(base91.decode(data['gyro_source']['raw_imu']))
-length = struct.unpack('<Q', raw[:8])[0]
-p = 8
-for i in range(0, length):
-    gyro = (); accl = (); magn = ();
-
-    timestamp_ms = struct.unpack('<d', raw[p:p+8])[0]; p += 8;
-
-    has_gyro = raw[p]; p += 1;
-    if has_gyro:
-        gyro = struct.unpack('<ddd', raw[p:p+3*8]); p += 3*8;
-
-    has_accl = raw[p]; p += 1;
-    if has_accl:
-        accl = struct.unpack('<ddd', raw[p:p+3*8]); p += 3*8;
-
-    has_magn = raw[p]; p += 1;
-    if has_magn:
-        magn = struct.unpack('<ddd', raw[p:p+3*8]); p += 3*8;
-
-    print("IMU", timestamp_ms, gyro, accl, magn)
-"""

@@ -19,7 +19,7 @@ Composition {
 			Clips = {
 				Clip {
 					ID = "Clip1",
-					Filename = "Comp:\\VID_20220615_110533_00_001(1)_H.264.mov",
+					Filename = "Comp:\\VID_20220615_110533_00_001_H.264.mov",
 					FormatID = "QuickTimeMovies",
 					Length = 574,
 					Multiframe = true,

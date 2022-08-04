@@ -13,7 +13,7 @@ parser.add_argument("-q", "--quaternions", help="Save data as quaternions",
                     action="store_true")
 parser.add_argument("-a", "--all_timestamps", help="Save all timestamps instead of FPS converted",
                     action="store_true")
-parser.parse_args()
+args = parser.parse_args()
 
 gyroflow = args.gyroflow_path
 convert_to_euler = True

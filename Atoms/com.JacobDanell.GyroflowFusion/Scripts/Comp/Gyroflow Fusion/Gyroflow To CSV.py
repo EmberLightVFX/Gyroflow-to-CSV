@@ -5,6 +5,7 @@ from pprint import pprint
 # Arg vaiables
 csv_fields = ["timestamp", "x", "y", "z"]
 all_timestamps = False
+csv_path = ""
 
 # Quaternions
 def process(gyroflow_path, quaternion_type, convert_to_euler, all_timestamps):
@@ -210,6 +211,226 @@ def convert_to_dict(data_list):
         data_dict.update({int(item[0]): item[2::]})
     return data_dict
 
+# Vonk data node content as a Fusion .setting formatted macro snippet
+def paste_macro_text():
+    global csv_path
+
+    txt = '''
+{
+	Tools = ordered() {
+		vNumberCompReqTime1 = Fuse.vNumberCompReqTime {
+			NameSet = true,
+			ViewInfo = OperatorInfo { Pos = { -275, -82.5 } },
+			Colors = { TileColor = { R = 0.886274509803922, G = 0.662745098039216, B = 0.109803921568627 }, }
+		},
+		vTextFromFile1 = Fuse.vTextFromFile {
+			CtrlWZoom = false,
+			NameSet = true,
+			Inputs = {
+				Input = Input { Value = "''' + str(csv_path) + '''", },
+			},
+			ViewInfo = OperatorInfo { Pos = { -275, -16.197 } },
+			Colors = { TileColor = { R = 0.886274509803922, G = 0.662745098039216, B = 0.109803921568627 }, }
+		},
+		PipeRouter1 = PipeRouter {
+			Inputs = {
+				Input = Input {
+					SourceOp = "vTextFromFile1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = PipeRouterInfo { Pos = { -165, -16.5 } },
+			Colors = { TileColor = { R = 0.886274509803922, G = 0.662745098039216, B = 0.109803921568627 }, }
+		},
+		yGyro_vNumberFromCSV1 = Fuse.vNumberFromCSV {
+			NameSet = true,
+			Inputs = {
+				Row = Input {
+					SourceOp = "vNumberAdd1",
+					Source = "Output",
+				},
+				Column = Input { Value = 3, },
+				IgnoreHeaderRow = Input { Value = 1, },
+				Input = Input {
+					SourceOp = "PipeRouter1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { -55, -16.5 } },
+			Colors = { TileColor = { R = 0.886274509803922, G = 0.662745098039216, B = 0.109803921568627 }, }
+		},
+		xGyro_vNumberFromCSV1 = Fuse.vNumberFromCSV {
+			NameSet = true,
+			Inputs = {
+				Row = Input {
+					SourceOp = "vNumberAdd1",
+					Source = "Output",
+				},
+				Column = Input { Value = 2, },
+				IgnoreHeaderRow = Input { Value = 1, },
+				Input = Input {
+					SourceOp = "PipeRouter1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { -55, -49.5 } },
+			Colors = { TileColor = { R = 0.886274509803922, G = 0.662745098039216, B = 0.109803921568627 }, }
+		},
+		vNumberAdd1 = Fuse.vNumberAdd {
+			NameSet = true,
+			Inputs = {
+				Term1 = Input {
+					SourceOp = "vNumberCompReqTime1",
+					Source = "Output",
+				},
+				Term2 = Input { Value = 1, },
+				ShowInput = Input { Value = 1, },
+			},
+			ViewInfo = OperatorInfo { Pos = { -55, -82.5 } },
+			Colors = { TileColor = { R = 0.886274509803922, G = 0.662745098039216, B = 0.109803921568627 }, }
+		},
+		zGyro_vNumberFromCSV1 = Fuse.vNumberFromCSV {
+			NameSet = true,
+			Inputs = {
+				Row = Input {
+					SourceOp = "vNumberAdd1",
+					Source = "Output",
+				},
+				Column = Input { Value = 4, },
+				IgnoreHeaderRow = Input { Value = 1, },
+				Input = Input {
+					SourceOp = "PipeRouter1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { -55, 16.5 } },
+			Colors = { TileColor = { R = 0.886274509803922, G = 0.662745098039216, B = 0.109803921568627 }, }
+		},
+		zGyro1 = Fuse.vNumberMultiply {
+			NameSet = true,
+			CustomData = {
+				Settings = {
+					[2] = {
+						Tools = ordered() {
+							zGyro = Fuse.vNumberMultiply {
+								Inputs = {
+									ShowInput = Input { Value = 1 },
+									Factor2 = Input { Value = -1 },
+									Factor1 = Input {
+										SourceOp = "vNumberFromText1_2",
+										Source = "Output"
+									}
+								},
+								CtrlWZoom = false,
+								NameSet = true,
+								ViewInfo = OperatorInfo { Pos = { 1265, 16.5 } },
+								CustomData = {
+								}
+							}
+						}
+					},
+				}
+			},
+			Inputs = {
+				Factor1 = Input {
+					SourceOp = "zGyro_vNumberFromCSV1",
+					Source = "Output",
+				},
+				Factor2 = Input { Value = 1, },
+				ShowInput = Input { Value = 1, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 55, 16.5 } },
+			Colors = { TileColor = { R = 0.886274509803922, G = 0.662745098039216, B = 0.109803921568627 }, }
+		},
+		yGyro1 = Fuse.vNumberMultiply {
+			NameSet = true,
+			CustomData = {
+				Settings = {
+					[2] = {
+						Tools = ordered() {
+							yGyro = Fuse.vNumberMultiply {
+								Inputs = {
+									ShowInput = Input { Value = 1 },
+									Factor2 = Input { Value = -1 },
+									Factor1 = Input {
+										SourceOp = "vNumberFromText1",
+										Source = "Output"
+									}
+								},
+								CtrlWZoom = false,
+								NameSet = true,
+								ViewInfo = OperatorInfo { Pos = { 1265, -16.5 } },
+								CustomData = {
+								}
+							}
+						}
+					}
+				}
+			},
+			Inputs = {
+				Factor1 = Input {
+					SourceOp = "yGyro_vNumberFromCSV1",
+					Source = "Output",
+				},
+				Factor2 = Input { Value = 1, },
+				ShowInput = Input { Value = 1, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 55, -16.5 } },
+			Colors = { TileColor = { R = 0.886274509803922, G = 0.662745098039216, B = 0.109803921568627 }, }
+		},
+		xGyro1 = Fuse.vNumberMultiply {
+			NameSet = true,
+			CurrentSettings = 2,
+			CustomData = {
+				Settings = {
+					[1] = {
+						Tools = ordered() {
+							xGyro = Fuse.vNumberMultiply {
+								Inputs = {
+									ShowInput = Input { Value = 1 },
+									Factor2 = Input { Value = 1 },
+									Factor1 = Input {
+										SourceOp = "vNumberFromText1_1",
+										Source = "Output"
+									}
+								},
+								CtrlWZoom = false,
+								NameSet = true,
+								ViewInfo = OperatorInfo { Pos = { 1265, -49.5 } },
+								CustomData = {
+								}
+							}
+						}
+					}
+				}
+			},
+			Inputs = {
+				Factor1 = Input {
+					SourceOp = "xGyro_vNumberFromCSV1",
+					Source = "Output",
+				},
+				Factor2 = Input { Value = -1, },
+				ShowInput = Input { Value = 1, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 55, -49.5 } },
+			Colors = { TileColor = { R = 0.886274509803922, G = 0.662745098039216, B = 0.109803921568627 }, }
+		},
+		CSV_Underlay1 = Underlay {
+			NameSet = true,
+			ViewInfo = UnderlayInfo {
+				Pos = { -110, -115.5 },
+				Size = { 509.151, 191.757 }
+			},
+			Colors = { TileColor = { R = 0.886274509803922, G = 0.662745098039216, B = 0.109803921568627 }, }
+		}
+	}
+}
+
+'''
+
+    return txt
+
+
 def main():
     comp = fu.GetCurrentComp()
     flow = comp.CurrentFrame.FlowView
@@ -406,13 +627,27 @@ app:AddConfig('GFWin', {
             all_timestamps = False
 
         # Convert the Gyroflow file to a CSV document
+        global csv_path
         csv_path = process(gyroflow_path, quaternion_type, convert_to_euler, all_timestamps)
 
         # Add an initial Vonk TextCreate Node
         if comp and add_nodes:
             print("[Add Nodes to Comp] Enabled")
-            txtNode = comp.AddTool("Fuse.vTextFromFile")
-            txtNode.Input = csv_path
+            #txtNode = comp.AddTool("Fuse.vTextFromFile")
+            #txtNode.Input = csv_path
+
+            macro_txt = str(paste_macro_text())
+            run_command = '''
+local macro_content = [=[''' + macro_txt + ''']=]
+
+print("[Gyroflow][Macro Content]")
+print(macro_content)
+
+comp:Paste(bmd.readstring(macro_content))
+
+'''
+
+            comp.Execute(run_command)
         else:
             print("[Add Nodes to Comp] Skipping")
     dlg.On.GoButton.Clicked = GoButtonFunc
@@ -426,5 +661,8 @@ app:AddConfig('GFWin', {
     dlg.Show()
     disp.RunLoop()
     dlg.Hide()
+
+    print("[Done]")
+
 if __name__=="__main__":
     main()

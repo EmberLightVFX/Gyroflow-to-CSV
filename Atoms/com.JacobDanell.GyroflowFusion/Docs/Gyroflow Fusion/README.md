@@ -37,9 +37,11 @@ Click the "Go" button to proceed.
 
 * * *
 
-If you enabled the '[x] Add "Gyroflow CSV" Nodes to Comp' checkbox in the dialog, a Vonk "vTextFromFile" node is inserted into your Fusion composite that has the path to the Gyroflow generated CSV file pre-entered into the "Input" textfield.
+If you enabled the '[x] Add "Gyroflow CSV" Nodes to Comp' checkbox in the dialog, a Vonk node graph is inserted into your Fusion composite that has the path to the Gyroflow generated CSV file pre-entered into the "vTextFromFile" node's "Input" textfield.
 
-![vTextFromFile](Images/vtextfromfile.png)
+The nodes named "xGyro1", "yGyro1", and "zGyro1" provide the Number data-type based outputs for the Rotate X/Y/Z channels of IMU (inertial) stabilization data from Gyroflow.
+
+![Macro Nodes](Images/macro_nodes.png)
 
 * * *
 
@@ -47,9 +49,6 @@ If you have a large Gyroflow file that takes a while to process, you can watch t
 
 ![Console](Images/console_window.png)
 
-* * *
-
-**Note:** Python 3 support in Fusion does not currently work with the BMD API's "comp.Paste()" function. This affects the ability to quickly insert macros automatically from a .py script without using complex workarounds.
 
 ## Macro
 

@@ -227,7 +227,7 @@ def paste_macro_text():
 			CtrlWZoom = false,
 			NameSet = true,
 			Inputs = {
-				Input = Input { Value = "''' + str(csv_path) + '''", },
+				Input = Input { Value = [[''' + str(csv_path) + ''']], },
 			},
 			ViewInfo = OperatorInfo { Pos = { -275, -16.197 } },
 			Colors = { TileColor = { R = 0.886274509803922, G = 0.662745098039216, B = 0.109803921568627 }, }
@@ -631,7 +631,7 @@ app:AddConfig('GFWin', {
         csv_path = process(gyroflow_path, quaternion_type, convert_to_euler, all_timestamps)
 
         # Add an initial Vonk TextCreate Node
-        if comp and add_nodes:
+        if comp and add_nodes and itm["QuaternionsCheckbox"].Checked == False:
             print("[Add Nodes to Comp] Enabled")
             #txtNode = comp.AddTool("Fuse.vTextFromFile")
             #txtNode.Input = csv_path
@@ -651,6 +651,16 @@ comp:Paste(bmd.readstring(macro_content))
         else:
             print("[Add Nodes to Comp] Skipping")
     dlg.On.GoButton.Clicked = GoButtonFunc
+
+    def QuartCheckboxFunc(ev):
+        if itm["QuaternionsCheckbox"].Checked == True:
+            print("[Save data as quaternions] Disabling this control means the \"Add Nodes to Comp\" control cannot be used.")
+            itm["AddNodesToCompCheckbox"].Enabled = False
+            #itm["AddNodesToCompCheckbox"].Visible = False
+        else:
+            itm["AddNodesToCompCheckbox"].Enabled = True
+            #itm["AddNodesToCompCheckbox"].Visible = True
+    dlg.On.QuaternionsCheckbox.Clicked = QuartCheckboxFunc
 
     # Display the Splash screen
     sdlg.Show()

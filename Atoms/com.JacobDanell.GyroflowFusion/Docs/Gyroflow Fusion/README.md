@@ -89,6 +89,14 @@ The mapping of Gyroflow channels is:
     yGyro1.Output -> Transform3DOp.Rotate.Y
     zGyro1.Output -> Transform3DOp.Rotate.Z
 
+## Timeline Render Start Frame
+
+The "vNumberAdd" node is used to shift the starting frame number when accessing the CSV (comma separated value) text file's "Index" based line number. By default the offset of adding 1 to the current timeline frame number is entered so things work out of the box with a timeline that has frame 0 as the "Render Start" frame value. 
+
+You can easily modify the vNumberAdd node's "Term 2" setting to line up with your VFX workflow needs such as a shot with a frame 1, frame 1000, or frame 1001 "Render Start" frame.
+
+![vNumberAdd](Images/vnumberadd.png)
+
 # IMU Motion Corrections
 
 If you need to adjust the direction axis for the IMU corrections, there are two preset values stored in the "Versions" controls for the "xGyro1", "yGyro1", and "zGyro1" nodes.

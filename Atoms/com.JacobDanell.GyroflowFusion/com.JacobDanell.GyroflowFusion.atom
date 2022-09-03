@@ -1,0 +1,52 @@
+Atom {
+	Name = "Gyroflow Fusion",
+	Category = "Scripts/Comp",
+	Author = "Jacob Danell",
+	Version = 1,
+	Date = {2022, 9, 3},
+	Description = [[<center><h2>Gyroflow Fusion</h2></center>
+<p>A Python script that converts your Gyroflow stabilization to a CSV file. Make sure to choose "including processed gyro data" when exporting from Gyroflow. As default it saves out the rotations as Euler rotation (ZYX). It also saves out the data in your footages' native frame rate.</p>
+
+<p>Requirements:<br>
+Python 3.6+ is required to use this script.</p>
+
+<p>For more info, please check:</p>
+
+<br>Gyroflow: <a href="https://github.com/gyroflow/gyroflow">https://github.com/gyroflow/gyroflow</a></br>
+
+<br>Gyroflow To CSV: <a href="https://github.com/EmberLightVFX/GyroFlow-to-CSV">https://github.com/EmberLightVFX/GyroFlow-to-CSV</a></br>
+
+]],
+	Donation = {
+		URL = [[https://paypal.me/danell]],
+		Amount = "5",
+	},
+
+	Deploy = {
+		"Comp/Gyroflow Fusion/Gyroflow.comp",
+		"Comp/Gyroflow Fusion/Media/VID_20220615_110533_00_001.csv",
+		"Comp/Gyroflow Fusion/Media/VID_20220615_110533_00_001.gyroflow",
+		"Comp/Gyroflow Fusion/Media/VID_20220615_110533_00_001_H.264.mov",
+		"Docs/Gyroflow Fusion/Images/console_window.png",
+		"Docs/Gyroflow Fusion/Images/example_comp.png",
+		"Docs/Gyroflow Fusion/Images/file_dialog.png",
+		"Docs/Gyroflow Fusion/Images/fusion_studio_menu.png",
+		"Docs/Gyroflow Fusion/Images/gyroflow_multiply.png",
+		"Docs/Gyroflow Fusion/Images/macro_nodes.png",
+		"Docs/Gyroflow Fusion/Images/panomap.png",
+		"Docs/Gyroflow Fusion/Images/panomap_stereo.png",
+		"Docs/Gyroflow Fusion/Images/rotation_channels.png",
+		"Docs/Gyroflow Fusion/Images/rotation_channels_connect_to_menu.png",
+		"Docs/Gyroflow Fusion/Images/select_tool.png",
+		"Docs/Gyroflow Fusion/Images/splash_dialog.png",
+		"Docs/Gyroflow Fusion/Images/vtextfromfile.png",
+		"Docs/Gyroflow Fusion/LICENSE.md",
+		"Docs/Gyroflow Fusion/README.md",
+		"Macros/Gyroflow Fusion/Gyroflow CSV.setting",
+		"Scripts/Comp/Gyroflow Fusion/Gyroflow To CSV.py",
+		"Scripts/Comp/Gyroflow Fusion/gyroflow_logo.png",
+	},
+	Dependencies = {
+			"com.Vonk.VonkUltra",
+	},
+}

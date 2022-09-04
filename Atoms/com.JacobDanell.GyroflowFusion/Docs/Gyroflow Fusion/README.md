@@ -64,7 +64,7 @@ The nodes named "xGyro1", "yGyro1", and "zGyro1" provide the Number data-type ba
 
 A Gyroflow example compositing project is provided that includes a short video clip, a .gyroflow file, and a CSV export. This project shows an applied use of the "Gyroflow to CSV" script and [Vonk](https://docs.google.com/document/d/1U9WfdHlE1AZHdU6_ZQCB1I2nSa5I7TyHG2vKMi2I7v8/edit?usp=sharing) data nodes inside of Fusion. 
 
-In order to use this example comp you need to have Vonk installed (from the Reactor Package Manager) allow you to read a Gyroflow CSV file and drive a 3D camera with it. 
+In order to use this example comp you need to have Vonk installed (from the Reactor Package Manager) to read a Gyroflow CSV file and drive a 3D camera with it. 
 
 Open the example project if you want to see how it's done:
 
@@ -155,4 +155,4 @@ You could also use Gyroflow X/Y/Z view rotation data to help drive the KartaVR R
 
 This allows the IMU data to be used for the primary view leveling (or motion dampening) effect. This would be followed by a Vonk vNumberMultiply / vNumberAdd node approach to blend in artist controlled keyframable view offset adjustments that are animated across the timeline frame range.
 
-Averaging / motion dampening can be applied using Vonk based temporal effects on Number datatypes. This makes it possible to read frame values ahead/behind of the current playhead/timeline frame number (vNumberCompReqTime).
+Averaging / motion dampening can be applied using Vonk based temporal effects on Number datatypes. This makes it possible to read frame values ahead/behind the current playhead/timeline frame number (vNumberCompReqTime).

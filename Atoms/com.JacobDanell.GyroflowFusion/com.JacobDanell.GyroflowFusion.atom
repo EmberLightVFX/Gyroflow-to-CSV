@@ -3,7 +3,7 @@ Atom {
 	Category = "Scripts/Comp",
 	Author = "Jacob Danell",
 	Version = 1,
-	Date = {2022, 9, 3},
+	Date = {2022, 9, 4},
 	Description = [[<center><h2>Gyroflow Fusion</h2></center>
 <p>A Python script that converts your Gyroflow stabilization to a CSV file. Make sure to choose "including processed gyro data" when exporting from Gyroflow. As default it saves out the rotations as Euler rotation (ZYX). It also saves out the data in your footages' native frame rate.</p>
 
@@ -27,6 +27,7 @@ Python 3.6+ is required to use this script.</p>
 		"Comp/Gyroflow Fusion/Media/VID_20220615_110533_00_001.csv",
 		"Comp/Gyroflow Fusion/Media/VID_20220615_110533_00_001.gyroflow",
 		"Comp/Gyroflow Fusion/Media/VID_20220615_110533_00_001_H.264.mov",
+		"Config/DragDrop/Gyroflow Fusion DragDrop.fu",
 		"Docs/Gyroflow Fusion/Images/console_window.png",
 		"Docs/Gyroflow Fusion/Images/example_comp.png",
 		"Docs/Gyroflow Fusion/Images/file_dialog.png",

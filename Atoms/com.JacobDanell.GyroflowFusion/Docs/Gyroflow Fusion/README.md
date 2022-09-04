@@ -8,6 +8,12 @@ Requirements:
 - Resolve (free) or Resolve Studio or Fusion Studio
 - Python 3.6+ is required to use this script.
 
+# DragDrop Support
+
+The Gyroflow Fusion toolset supports drag and drop handling of .gyroflow files. This works by dragging the file from an Explorer/Finder/Nautilus desktop folder browsing location and dropped the file into the Fusion nodes view area.
+
+In this situation, the GyroFusion script is automatically launched and the "Gyroflow Filename" field is pre-filled in advance in the GUI.
+
 # Using the Script
 
 To run the script, open the Fusion Studio based "Script > Gyroflow Fusion > Gyroflow to CSV" Menu item.

@@ -7,6 +7,9 @@ csv_fields = ["timestamp", "x", "y", "z"]
 all_timestamps = False
 csv_path = ""
 
+global gyroflow_dragdrop
+# print(globals())
+
 # Quaternions
 def process(gyroflow_path, quaternion_type, convert_to_euler, all_timestamps):
     if not os.path.exists(gyroflow_path):
@@ -437,6 +440,18 @@ def main():
     ui = fu.UIManager
     disp = bmd.UIDispatcher(ui)
 
+    # UI Preset Values
+    
+    global gyroflow_dragdrop
+    try:
+        gyroflow_path = gyroflow_dragdrop
+    except NameError:
+        gyroflow_path = ""
+
+    smoothed = 1
+    quaternions = 0
+
+    # Hotkey bindings
     comp.Execute("""
 app:AddConfig('SplashWin', {
     Target {
@@ -468,12 +483,7 @@ app:AddConfig('GFWin', {
     },
 })""")
 
-    # UI Preset Values
-    gyroflow_path = ""
-    smoothed = 1
-    quaternions = 0
-
-    # Splash Screen
+    # Splash Screen Window
     sdlg = disp.AddWindow({"WindowTitle": "Emberlight | Gyroflow To CSV", "ID": "SplashWin", "TargetID" : "SplashWin", "Geometry": [25, 140, 500, 310], "Spacing": 0,},[
         ui.VGroup({"ID": "root", "Weight": 10.0,},[
             ui.Button({
@@ -522,7 +532,8 @@ app:AddConfig('GFWin', {
         webbrowser.open(url)
     sdlg.On.LogoButton.Clicked = LogoButtonFunc
 
-    # Main GUI
+
+    # File Dialog Window
     dlg = disp.AddWindow({"WindowTitle": "Emberlight | Gyroflow To CSV", "ID": "GFWin", "TargetID" : "GFWin", "Geometry": [25, 155, 720, 180], "Spacing": 0,},[
         ui.VGroup({"ID": "root", "Weight": 10.0,},[
             ui.HGroup({"Weight": 0.0,},[

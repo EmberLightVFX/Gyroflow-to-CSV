@@ -34,6 +34,8 @@ Step 3. Copy the "Docs/Gyroflow Fusion/" folder to "Reactor:/Deploy/Docs/Gyroflo
 
 Step 4. Copy the "Comp/Gyroflow Fusion/" folder to "Reactor:/Deploy/Comp/Gyroflow Fusion/".
 
-Step 5. Use the Resolve/Fusion based "Reactor Package Manager" to install the "Vonk Ultra" package.
+Step 5. Copy the file "Config/DragDrop/Gyroflow Fusion DragDrop.fu" folder to "Reactor:/Deploy/Config/DragDrop/". You might have to manually create the "DragDrop" folder if it does not exist at the destination location.
 
-Step 6. Read the markdown formatted documentation provided at "Reactor:/Deploy/Docs/Gyroflow Fusion/README.md" for usage instructions.
+Step 6. Use the Resolve/Fusion based "Reactor Package Manager" to install the "Vonk Ultra" package.
+
+Step 7. Read the markdown formatted documentation provided at "Reactor:/Deploy/Docs/Gyroflow Fusion/README.md" for usage instructions.

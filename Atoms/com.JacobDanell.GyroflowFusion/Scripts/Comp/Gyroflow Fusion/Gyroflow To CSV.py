@@ -649,13 +649,15 @@ app:AddConfig('GFWin', {
 
             macro_txt = str(paste_macro_text())
             run_command = '''
-local macro_content = [=[''' + macro_txt + ''']=]
+comp:StartUndo("Gyroflow Fusion")
 
+local macro_content = [=[''' + macro_txt + ''']=]
 print("[Gyroflow][Macro Content]")
 print(macro_content)
 
 comp:Paste(bmd.readstring(macro_content))
 
+comp:EndUndo(True)
 '''
 
             comp.Execute(run_command)

@@ -1,0 +1,1069 @@
+Composition {
+	CurrentTime = 573,
+	RenderRange = { 0, 573 },
+	GlobalRange = { 0, 573 },
+	CurrentID = 1273,
+	HiQ = true,
+	PlaybackUpdateMode = 0,
+	Version = "Fusion Studio 18.0.1 build 5",
+	SavedOutputs = 2,
+	HeldTools = 0,
+	DisabledTools = 0,
+	LockedTools = 0,
+	AudioOffset = 0,
+	Resumable = true,
+	OutputClips = {
+	},
+	Tools = {
+		Loader2 = Loader {
+			Clips = {
+				Clip {
+					ID = "Clip1",
+					Filename = "Comp:/Media/VID_20220615_110533_00_001_H.264.mov",
+					FormatID = "QuickTimeMovies",
+					Length = 574,
+					Multiframe = true,
+					TrimIn = 0,
+					TrimOut = 573,
+					ExtendFirst = 0,
+					ExtendLast = 0,
+					Loop = 1,
+					AspectMode = 0,
+					Depth = 0,
+					TimeCode = 0,
+					GlobalStart = 0,
+					GlobalEnd = 573
+				}
+			},
+			NameSet = true,
+			Inputs = {
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1540, -82.5 } },
+			Colors = { TileColor = { R = 0.372549019607843, G = 0.6, B = 0.125490196078431 }, }
+		},
+		Loader1 = Loader {
+			Clips = {
+				Clip {
+					ID = "Clip1",
+					Filename = "Comp:/Media/VID_20220615_110533_00_001_H.264.mov",
+					FormatID = "QuickTimeMovies",
+					Length = 574,
+					Multiframe = true,
+					TrimIn = 0,
+					TrimOut = 573,
+					ExtendFirst = 0,
+					ExtendLast = 0,
+					Loop = 1,
+					AspectMode = 0,
+					Depth = 0,
+					TimeCode = 0,
+					GlobalStart = 0,
+					GlobalEnd = 573
+				}
+			},
+			NameSet = true,
+			Inputs = {
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1540, -247.5 } },
+			Colors = { TileColor = { R = 0.372549019607843, G = 0.6, B = 0.125490196078431 }, }
+		},
+		ThreeD_Underlay1 = Underlay {
+			NameSet = true,
+			ViewInfo = UnderlayInfo {
+				Pos = { 1760, -280.5 },
+				Size = { 612, 129.069 }
+			},
+			Colors = { TileColor = { R = 0.372549019607843, G = 0.6, B = 0.125490196078431 }, }
+		},
+		Text3D1 = Text3D {
+			Inputs = {
+				["Transform3DOp.Translate.Y"] = Input { Value = -6.3, },
+				["Transform3DOp.Translate.Z"] = Input { Value = -8.8762274376225, },
+				StyledText = Input { Value = "Hej!", },
+				Font = Input { Value = "Open Sans", },
+				Style = Input { Value = "Bold", },
+				VerticalTopCenterBottom = Input { Value = 1, },
+				VerticalJustification = Input { Value = 3, },
+				VerticalJustificationNew = Input { Value = 3, },
+				HorizontalJustificationNew = Input { Value = 3, },
+				ExtrusionProfile = Input {
+					SourceOp = "Text3D1ExtrusionProfile",
+					Source = "Value",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 1540, -214.5 } },
+			Colors = { TileColor = { R = 0.372549019607843, G = 0.6, B = 0.125490196078431 }, }
+		},
+		Duplicate3D1 = Duplicate3D {
+			Inputs = {
+				LastCopy = Input { Value = 9, },
+				["Rotate.Y"] = Input { Value = 80.3, },
+				SceneInput = Input {
+					SourceOp = "Text3D1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 1650, -214.5 } },
+			Colors = { TileColor = { R = 0.372549019607843, G = 0.6, B = 0.125490196078431 }, }
+		},
+		Renderer3D1 = Renderer3D {
+			CtrlWZoom = false,
+			CustomData = {
+				ToolVersion = 2,
+			},
+			Inputs = {
+				GlobalOut = Input { Value = 573, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				SceneInput = Input {
+					SourceOp = "Merge3D1",
+					Source = "Output",
+				},
+				RendererType = Input { Value = FuID { "RendererOpenGL" }, },
+				["RendererOpenGL.AntiAliasing.Channels.RGBA.HighQuality.Enable"] = Input { Value = 1, },
+				["RendererOpenGL.AntiAliasing.Presets.Color.Supersampling.HighQuality.RateX"] = Input { Value = 3, },
+				["RendererOpenGL.AntiAliasing.Presets.Color.Supersampling.HighQuality.RateY"] = Input { Value = 3, },
+				["RendererOpenGL.AntiAliasing.Presets.Color.Multisampling.LowQuality.SampleCount"] = Input { Value = 2, },
+				["RendererOpenGL.AntiAliasing.Presets.Color.Multisampling.HighQuality.SampleCount"] = Input { Value = 3, },
+				["RendererOpenGL.AntiAliasing.Presets.Aux.Supersampling.HighQuality.RateX"] = Input { Value = 3, },
+				["RendererOpenGL.AntiAliasing.Presets.Aux.Supersampling.HighQuality.RateY"] = Input { Value = 3, },
+				["RendererOpenGL.AntiAliasing.Presets.Aux.Multisampling.LowQuality.SampleCount"] = Input { Value = 2, },
+				["RendererOpenGL.AntiAliasing.Presets.Aux.Multisampling.HighQuality.SampleCount"] = Input { Value = 3, },
+				["RendererOpenGL.AccumQuality"] = Input { Value = 32, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1980, -214.5 } },
+			Colors = { TileColor = { R = 0.372549019607843, G = 0.6, B = 0.125490196078431 }, },
+			SubInputsData = {
+				RendererOpenGL = {
+					Version = 1
+				}
+			}
+		},
+		vNumberCompReqTime2 = Fuse.vNumberCompReqTime {
+			NameSet = true,
+			ViewInfo = OperatorInfo { Pos = { 935, -247.5 } },
+			Colors = { TileColor = { R = 0.886274509803922, G = 0.662745098039216, B = 0.109803921568627 }, }
+		},
+		Transform3D2 = Transform3D {
+			NameSet = true,
+			Inputs = {
+				SceneInput = Input {
+					SourceOp = "Transform3D1",
+					Source = "Output",
+				},
+				["Transform3DOp.Rotate.RotOrder"] = Input { Value = FuID { "ZYX" }, },
+				["Transform3DOp.Rotate.X"] = Input { Value = -0.3348257458474, },
+				["Transform3DOp.Rotate.Y"] = Input { Value = 0.1385575581877, },
+				["Transform3DOp.Rotate.Z"] = Input { Value = 179.8606, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1870, -247.5 } },
+			Colors = { TileColor = { R = 0.372549019607843, G = 0.6, B = 0.125490196078431 }, }
+		},
+		ThreeD_Underlay2 = Underlay {
+			NameSet = true,
+			ViewInfo = UnderlayInfo {
+				Pos = { 1760, -115.5 },
+				Size = { 609.688, 109.58 }
+			},
+			Colors = { TileColor = { R = 0.372549019607843, G = 0.6, B = 0.125490196078431 }, }
+		},
+		Duplicate3D2 = Duplicate3D {
+			NameSet = true,
+			Inputs = {
+				LastCopy = Input { Value = 5, },
+				["Translate.Y"] = Input { Value = 3.048, },
+				SceneInput = Input {
+					SourceOp = "Duplicate3D1",
+					Source = "Data3D",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 1760, -214.5 } },
+			Colors = { TileColor = { R = 0.372549019607843, G = 0.6, B = 0.125490196078431 }, }
+		},
+		PipeRouter1 = PipeRouter {
+			Inputs = {
+				Input = Input {
+					SourceOp = "vTextFromFile2",
+					Source = "Output",
+				},
+			},
+			ViewInfo = PipeRouterInfo { Pos = { 1045, -181.5 } },
+			Colors = { TileColor = { R = 0.886274509803922, G = 0.662745098039216, B = 0.109803921568627 }, }
+		},
+		yGyro1 = Fuse.vNumberMultiply {
+			NameSet = true,
+			CustomData = {
+				Settings = {
+					[2] = {
+						Tools = ordered() {
+							yGyro = Fuse.vNumberMultiply {
+								Inputs = {
+									ShowInput = Input { Value = 1 },
+									Factor2 = Input { Value = -1 },
+									Factor1 = Input {
+										SourceOp = "vNumberFromText1",
+										Source = "Output"
+									}
+								},
+								CtrlWZoom = false,
+								NameSet = true,
+								ViewInfo = OperatorInfo { Pos = { 1265, -16.5 } },
+								CustomData = {
+								}
+							}
+						}
+					},
+				}
+			},
+			Inputs = {
+				Factor1 = Input {
+					SourceOp = "yGyro_vNumberFromCSV1",
+					Source = "Output",
+				},
+				Factor2 = Input { Value = 1, },
+				ShowInput = Input { Value = 1, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1265, -181.5 } },
+			Colors = { TileColor = { R = 0.886274509803922, G = 0.662745098039216, B = 0.109803921568627 }, }
+		},
+		zGyro_vNumberFromCSV1 = Fuse.vNumberFromCSV {
+			NameSet = true,
+			Inputs = {
+				Row = Input {
+					SourceOp = "vNumberAdd1",
+					Source = "Output",
+				},
+				Column = Input { Value = 4, },
+				IgnoreHeaderRow = Input { Value = 1, },
+				Input = Input {
+					SourceOp = "PipeRouter1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 1155, -148.5 } },
+			Colors = { TileColor = { R = 0.886274509803922, G = 0.662745098039216, B = 0.109803921568627 }, }
+		},
+		Merge3D2 = Merge3D {
+			NameSet = true,
+			Inputs = {
+				SceneInput1 = Input {
+					SourceOp = "Transform3D3",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 1870, -82.5 } },
+			Colors = { TileColor = { R = 0.372549019607843, G = 0.6, B = 0.125490196078431 }, }
+		},
+		vNumberAdd1 = Fuse.vNumberAdd {
+			NameSet = true,
+			Inputs = {
+				Term1 = Input {
+					SourceOp = "vNumberCompReqTime2",
+					Source = "Output",
+				},
+				Term2 = Input { Value = 1, },
+				ShowInput = Input { Value = 1, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1155, -247.5 } },
+			Colors = { TileColor = { R = 0.886274509803922, G = 0.662745098039216, B = 0.109803921568627 }, }
+		},
+		zGyro1 = Fuse.vNumberMultiply {
+			NameSet = true,
+			CustomData = {
+				Settings = {
+					[2] = {
+						Tools = ordered() {
+							zGyro = Fuse.vNumberMultiply {
+								Inputs = {
+									ShowInput = Input { Value = 1 },
+									Factor2 = Input { Value = -1 },
+									Factor1 = Input {
+										SourceOp = "vNumberFromText1_2",
+										Source = "Output"
+									}
+								},
+								CtrlWZoom = false,
+								NameSet = true,
+								ViewInfo = OperatorInfo { Pos = { 1265, 16.5 } },
+								CustomData = {
+								}
+							}
+						}
+					},
+				}
+			},
+			Inputs = {
+				Factor1 = Input {
+					SourceOp = "zGyro_vNumberFromCSV1",
+					Source = "Output",
+				},
+				Factor2 = Input { Value = 1, },
+				ShowInput = Input { Value = 1, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1265, -148.5 } },
+			Colors = { TileColor = { R = 0.886274509803922, G = 0.662745098039216, B = 0.109803921568627 }, }
+		},
+		yGyro_vNumberFromCSV1 = Fuse.vNumberFromCSV {
+			NameSet = true,
+			Inputs = {
+				Row = Input {
+					SourceOp = "vNumberAdd1",
+					Source = "Output",
+				},
+				Column = Input { Value = 3, },
+				IgnoreHeaderRow = Input { Value = 1, },
+				Input = Input {
+					SourceOp = "PipeRouter1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 1155, -181.5 } },
+			Colors = { TileColor = { R = 0.886274509803922, G = 0.662745098039216, B = 0.109803921568627 }, }
+		},
+		Note1 = Note {
+			Inputs = {
+				Comments = Input { Value = "This example comp uses the EmberLightVFX \"Gyroflow-to-CSV\" sample data with the updated Vonk CSV processsing nodes.\n\nRepository:\nhttps://github.com/EmberLightVFX/GyroFlow-to-CSV\n\nVonk Data Node Documentation:\nhttps://docs.google.com/document/d/1U9WfdHlE1AZHdU6_ZQCB1I2nSa5I7TyHG2vKMi2I7v8/edit?usp=sharing", }
+			},
+			ViewInfo = StickyNoteInfo {
+				Pos = { 1155, -445.5 },
+				Flags = {
+					Expanded = true
+				},
+				Size = { 563.614, 143.535 }
+			},
+		},
+		xGyro1 = Fuse.vNumberMultiply {
+			NameSet = true,
+			CurrentSettings = 2,
+			CustomData = {
+				Settings = {
+					[1] = {
+						Tools = ordered() {
+							xGyro = Fuse.vNumberMultiply {
+								Inputs = {
+									ShowInput = Input { Value = 1 },
+									Factor2 = Input { Value = 1 },
+									Factor1 = Input {
+										SourceOp = "vNumberFromText1_1",
+										Source = "Output"
+									}
+								},
+								CtrlWZoom = false,
+								NameSet = true,
+								ViewInfo = OperatorInfo { Pos = { 1265, -49.5 } },
+								CustomData = {
+								}
+							}
+						}
+					},
+				}
+			},
+			Inputs = {
+				Factor1 = Input {
+					SourceOp = "xGyro_vNumberFromCSV1",
+					Source = "Output",
+				},
+				Factor2 = Input { Value = -1, },
+				ShowInput = Input { Value = 1, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1265, -214.5 } },
+			Colors = { TileColor = { R = 0.886274509803922, G = 0.662745098039216, B = 0.109803921568627 }, }
+		},
+		Transform3D3 = Transform3D {
+			NameSet = true,
+			Inputs = {
+				SceneInput = Input {
+					SourceOp = "Camera3D2",
+					Source = "Output",
+				},
+				["Transform3DOp.Rotate.RotOrder"] = Input { Value = FuID { "ZYX" }, },
+				["Transform3DOp.Rotate.X"] = Input {
+					SourceOp = "xGyro1",
+					Source = "Output",
+				},
+				["Transform3DOp.Rotate.Y"] = Input {
+					SourceOp = "yGyro1",
+					Source = "Output",
+				},
+				["Transform3DOp.Rotate.Z"] = Input {
+					SourceOp = "zGyro1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 1760, -82.5 } },
+			Colors = { TileColor = { R = 0.372549019607843, G = 0.6, B = 0.125490196078431 }, }
+		},
+		CSV_Underlay1 = Underlay {
+			NameSet = true,
+			ViewInfo = UnderlayInfo {
+				Pos = { 1100, -280.5 },
+				Size = { 509.151, 191.757 }
+			},
+			Colors = { TileColor = { R = 0.886274509803922, G = 0.662745098039216, B = 0.109803921568627 }, }
+		},
+		Camera3D2 = Camera3D {
+			NameSet = true,
+			Inputs = {
+				AoV = Input { Value = 75, },
+				FLength = Input { Value = 7.74115871467676, },
+				["Stereo.Mode"] = Input { Value = FuID { "OffAxis" }, },
+				FilmGate = Input { Value = FuID { "BMD_URSA_4K_16x9" }, },
+				ApertureW = Input { Value = 0.831496062992126, },
+				ApertureH = Input { Value = 0.467716535433071, },
+				IDepth = Input { Value = 272.8, },
+				["SurfacePlaneInputs.ObjectID.ObjectID"] = Input { Value = 1, },
+				ImageInput = Input {
+					SourceOp = "Loader2",
+					Source = "Output",
+				},
+				["MtlStdInputs.MaterialID"] = Input { Value = 1, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1650, -82.5 } },
+			Colors = { TileColor = { R = 0.372549019607843, G = 0.6, B = 0.125490196078431 }, }
+		},
+		xGyro_vNumberFromCSV1 = Fuse.vNumberFromCSV {
+			NameSet = true,
+			Inputs = {
+				Row = Input {
+					SourceOp = "vNumberAdd1",
+					Source = "Output",
+				},
+				Column = Input { Value = 2, },
+				IgnoreHeaderRow = Input { Value = 1, },
+				Input = Input {
+					SourceOp = "PipeRouter1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 1155, -214.5 } },
+			Colors = { TileColor = { R = 0.886274509803922, G = 0.662745098039216, B = 0.109803921568627 }, }
+		},
+		Merge3D1 = Merge3D {
+			Inputs = {
+				SceneInput1 = Input {
+					SourceOp = "Transform3D2",
+					Source = "Output",
+				},
+				SceneInput2 = Input {
+					SourceOp = "Duplicate3D2",
+					Source = "Data3D",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 1870, -214.5 } },
+			Colors = { TileColor = { R = 0.372549019607843, G = 0.6, B = 0.125490196078431 }, }
+		},
+		Text3D1ExtrusionProfile = LUTBezier {
+			KeyColorSplines = {
+				[0] = {
+					[0] = { 0, RH = { 0.0666666666666667, 0.333333333333333 }, Flags = { Linear = true } },
+					[0.2] = { 1, LH = { 0.133333333333333, 0.666666666666667 }, RH = { 0.4, 1 }, Flags = { Linear = true } },
+					[0.8] = { 1, LH = { 0.6, 1 }, RH = { 0.866666666666667, 0.666666666666667 }, Flags = { Linear = true } },
+					[1] = { 0, LH = { 0.933333333333333, 0.333333333333333 }, Flags = { Linear = true } }
+				}
+			},
+			SplineColor = { Red = 192, Green = 128, Blue = 64 },
+			CtrlWZoom = false,
+		},
+		vTextFromFile2 = Fuse.vTextFromFile {
+			NameSet = true,
+			Inputs = {
+				Input = Input { Value = "Comp:/Media/VID_20220615_110533_00_001.csv", },
+			},
+			ViewInfo = OperatorInfo { Pos = { 935, -181.5 } },
+			Colors = { TileColor = { R = 0.886274509803922, G = 0.662745098039216, B = 0.109803921568627 }, }
+		},
+		Camera3D1 = Camera3D {
+			NameSet = true,
+			Inputs = {
+				AoV = Input { Value = 90, },
+				FLength = Input { Value = 5.94, },
+				["Stereo.Mode"] = Input { Value = FuID { "OffAxis" }, },
+				FilmGate = Input { Value = FuID { "BMD_URSA_4K_16x9" }, },
+				ApertureW = Input { Value = 0.831496062992126, },
+				ApertureH = Input { Value = 0.467716535433071, },
+				IDepth = Input { Value = 272.8, },
+				["SurfacePlaneInputs.ObjectID.ObjectID"] = Input { Value = 1, },
+				ImageInput = Input {
+					SourceOp = "Loader1",
+					Source = "Output",
+				},
+				["MtlStdInputs.MaterialID"] = Input { Value = 1, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1650, -247.5 } },
+			Colors = { TileColor = { R = 0.372549019607843, G = 0.6, B = 0.125490196078431 }, }
+		},
+		Renderer3D2 = Renderer3D {
+			NameSet = true,
+			CustomData = {
+				ToolVersion = 2,
+			},
+			Inputs = {
+				GlobalOut = Input { Value = 573, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				SceneInput = Input {
+					SourceOp = "Merge3D2",
+					Source = "Output",
+				},
+				RendererType = Input { Value = FuID { "RendererOpenGL" }, },
+				["RendererOpenGL.AntiAliasing.Channels.RGBA.HighQuality.Enable"] = Input { Value = 1, },
+				["RendererOpenGL.AntiAliasing.Presets.Color.Supersampling.HighQuality.RateX"] = Input { Value = 3, },
+				["RendererOpenGL.AntiAliasing.Presets.Color.Supersampling.HighQuality.RateY"] = Input { Value = 3, },
+				["RendererOpenGL.AntiAliasing.Presets.Color.Multisampling.LowQuality.SampleCount"] = Input { Value = 2, },
+				["RendererOpenGL.AntiAliasing.Presets.Color.Multisampling.HighQuality.SampleCount"] = Input { Value = 3, },
+				["RendererOpenGL.AntiAliasing.Presets.Aux.Supersampling.HighQuality.RateX"] = Input { Value = 3, },
+				["RendererOpenGL.AntiAliasing.Presets.Aux.Supersampling.HighQuality.RateY"] = Input { Value = 3, },
+				["RendererOpenGL.AntiAliasing.Presets.Aux.Multisampling.LowQuality.SampleCount"] = Input { Value = 2, },
+				["RendererOpenGL.AntiAliasing.Presets.Aux.Multisampling.HighQuality.SampleCount"] = Input { Value = 3, },
+				["RendererOpenGL.AccumQuality"] = Input { Value = 32, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1980, -82.5 } },
+			Colors = { TileColor = { R = 0.372549019607843, G = 0.6, B = 0.125490196078431 }, },
+			SubInputsData = {
+				RendererOpenGL = {
+					Version = 1
+				}
+			}
+		},
+		Transform3D1 = Transform3D {
+			NameSet = true,
+			Inputs = {
+				SceneInput = Input {
+					SourceOp = "Camera3D1",
+					Source = "Output",
+				},
+				["Transform3DOp.Rotate.RotOrder"] = Input { Value = FuID { "ZYX" }, },
+				["Transform3DOp.Rotate.X"] = Input {
+					SourceOp = "xGyro1",
+					Source = "Output",
+				},
+				["Transform3DOp.Rotate.Y"] = Input {
+					SourceOp = "yGyro1",
+					Source = "Output",
+				},
+				["Transform3DOp.Rotate.Z"] = Input {
+					SourceOp = "zGyro1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 1760, -247.5 } },
+			Colors = { TileColor = { R = 0.372549019607843, G = 0.6, B = 0.125490196078431 }, }
+		}
+	},
+	Frames = {
+		{
+			FrameTypeID = "ChildFrame",
+			Mode = 3,
+			LayoutPreset = 0,
+			PresetName = "Default",
+			Left = 0,
+			Top = 27,
+			Width = 1440,
+			Height = 724,
+			ZoneInfo = {
+				AuxRight = { Expanded = true },
+				["!Left"] = {
+				},
+				AuxLeft = { Expanded = true },
+				Right = { Expanded = true, },
+				Left = { Expanded = false, },
+				["!Right"] = {
+				}
+			},
+			ViewInfo = {
+				Viewer1 = { Show = true, RatioY = 0.01, RatioX = 1, },
+				InnerLeft = {
+				},
+				MainSplit = {
+					RatioX = 100,
+					RatioY = 1.67982456140351,
+				},
+				CenterSplit = {
+					RatioX = 1,
+					RatioY = 100,
+				},
+				Viewer2 = { Show = true, Adjust = false, RatioY = 0.01, MRU = 1, RatioX = 1, },
+				Comments = { Show = false },
+				Time = { Show = true, RatioX = 100, },
+				InnerColumns = {
+					RatioX = 100,
+					RatioY = 1.32017543859649,
+				},
+				Keyframes = { Show = false, Adjust = true, RatioY = 100, MRU = 0, RatioX = 1, },
+				LayoutStrip = { Show = true, RatioX = 100, },
+				Inspector = { Show = true, RatioY = 1, RatioX = 100, },
+				InnerRight = {
+				},
+				MediaPool = { Show = false, },
+				OuterColumns = {
+					RatioX = 100,
+					RatioY = 1,
+				},
+				Effects = { Show = false, },
+				Clips = { Show = false, },
+				Metadata = { Show = false, },
+				OuterLeft = {
+				},
+				ViewerSplit = {
+					RatioX = 100,
+					RatioY = 1,
+				},
+				Nodes = { Show = true, RatioX = 1, RatioY = 100, MRU = 1, Adjust = false, },
+				OuterRight = {
+					PixelX = 420,
+					RatioY = 100,
+				},
+				ActionStrip = { Show = false, Adjust = true, MRU = 0, RatioX = 100, },
+				Spline = { Show = false, Adjust = true, RatioY = 100, MRU = 0, RatioX = 1, }
+			},
+			Views = ordered() {
+				Effects = MultiView {
+					Active = "EffectView",
+					ViewList = ordered() {
+						EffectView = "EffectView"
+					},
+				},
+				Nodes = MultiView {
+					Active = "FlowView",
+					ViewList = ordered() {
+						FlowView = "FlowView"
+					},
+					FlowView = FlowView {
+						Flags = {
+							AutoHideNavigator = true,
+							GridSnap = true,
+							AutoSnap = true,
+							RemoveRouters = true
+						},
+						NavigatorSize = { 200, 140 },
+						Direction = "Vertical",
+						PipeStyle = "Direct",
+						RootScale = 0.45368,
+						RootOffset = { -708.489, 473.379 }
+					}
+				},
+				Keyframes = MultiView {
+					Active = "TimelineView",
+					ViewList = ordered() {
+						TimelineView = "TimelineView"
+					},
+					TimelineView = TimelineView {
+						TreeControlState = {
+						},
+						DisplayMode = "All Tools",
+						ShowCurrentTimeTools = false,
+						Filter = "Show All",
+						ShowSelectedTools = true,
+						ShowAnimatedToolsOnly = true,
+						ShowEditBoxes = false,
+						KeyFrameView = {
+							Position = { Left = 232, Bottom = 343 },
+							ScaleX = 1.22865497076023,
+							OffsetX = -28.2590643274854,
+							OffsetY = 0,
+							AutoScaling = "scroll",
+							AutoSnapTo = "frame",
+							AutoSnapToGuidelines = false,
+							GuidelinesGrabEnabled = true,
+							GuidelinesSnapTo = "frame"
+						},
+						Spreadsheet = { LeftPos = 232, Visible = false }
+					}
+				},
+				Spline = MultiView {
+					Active = "SplineView",
+					ViewList = ordered() {
+						SplineView = "SplineEditorView"
+					},
+					SplineView = SplineEditorView {
+						LeftPos = 264,
+						ScaleX = 0.2,
+						ScaleY = 0.00338983050847458,
+						OffsetX = 194.2,
+						OffsetY = 0,
+						AutoScaling = "scroll",
+						AutoSnapTo = "frame",
+						AutoSnapToGuidelines = false,
+						GuidelinesSnapTo = "frame",
+						ShowKeyMarkers = false,
+						IndependentHandles = false,
+						ShowNonSplineModifiers = false,
+						GuidelinesGrabEnabled = true,
+						ShowOneToolOnly = false,
+						ShowSelectedTools = false,
+						ShowAllInputs = false,
+						Filter = "Show All"
+					}
+				},
+				Inspector = MultiView {
+					Active = "Tools",
+					ViewList = ordered() {
+						Tools = "ControlView",
+						Modifiers = "ModifierView"
+					},
+				},
+				Viewer1 = MultiView {
+					Active = "LeftView",
+					ViewList = ordered() {
+						LeftView = "PreviewContainer"
+					},
+				},
+				Viewer2 = MultiView {
+					Active = "RightView",
+					ViewList = ordered() {
+						RightView = "PreviewContainer"
+					},
+				},
+				Time = "TimeView",
+				ActionStrip = "ActionStripView",
+				LayoutStrip = "LayoutStripView"
+			},
+			Layout = {
+				{ ID = "LayoutStrip", FixedY = 36, Resolve = false, Flat = true },
+				{
+					{
+						{ ID = "MediaPool", Fusion = false, RatioX = 1 },
+						{ ID = "Effects", RatioX = 1 },
+						Zone = "Left",
+						Rows = 2,
+						PaneID = "OuterLeft",
+						PixelX = 420
+					},
+					{
+						{
+							{
+								{ ID = "MediaPool", Fusion = false, RatioX = 1 },
+								{ ID = "Effects", RatioX = 1 },
+								PaneID = "InnerLeft",
+								MaxViews = 1,
+								PixelX = 420,
+								Rows = 2,
+								Zone = "!Left"
+							},
+							{
+								{
+									{ ID = "Viewer1", RatioY = 0.01, RatioX = 1 },
+									{ ID = "Viewer2", RatioX = 1 },
+									RatioY = 1,
+									Columns = 2,
+									PaneID = "ViewerSplit"
+								},
+								{ ID = "Time", FixedY = 83, Flat = true },
+								RatioX = 1,
+								Rows = 2
+							},
+							{
+								{ ID = "Inspector", RatioY = 1 },
+								{ ID = "Metadata", RatioY = 1, Fusion = false },
+								PaneID = "InnerRight",
+								MaxViews = 1,
+								PixelX = 420,
+								Rows = 2,
+								Zone = "!Right"
+							},
+							RatioY = 2,
+							Columns = 3,
+							PaneID = "InnerColumns"
+						},
+						{ ID = "ActionStrip", FixedY = 50, Flat = true },
+						{
+							{ ID = "Nodes", RatioX = 1 },
+							{ ID = "Spline", RatioX = 1 },
+							{ ID = "Keyframes", RatioX = 1 },
+							RatioY = 1,
+							Columns = 3,
+							PaneID = "MainSplit"
+						},
+						{ Fusion = false, ID = "Clips", LARGE_FixedY = 160, MEDIUM_FixedY = 138, SMALL_FixedY = 110 },
+						RatioX = 1,
+						Rows = 4,
+						PaneID = "CenterSplit"
+					},
+					{
+						{ ID = "Inspector", RatioY = 1 },
+						{ ID = "Metadata", RatioY = 1, Fusion = false },
+						Zone = "Right",
+						Rows = 2,
+						PaneID = "OuterRight",
+						PixelX = 420
+					},
+					RatioY = 1,
+					Columns = 3,
+					PaneID = "OuterColumns"
+				},
+				RatioX = 1,
+				Rows = 2,
+				RatioY = 1
+			},
+			TopBar = {
+				Left = { "Left", "MediaPool", "Effects", "Clips", "Nodes", "Console" },
+				Right = { "Spline", "Keyframes", "Metadata", "Inspector", "Right" }
+			}
+		}
+	},
+	Prefs = {
+		Comp = {
+			Views = {
+				RightView = {
+					Viewer = {
+						EnableLUTs = true,
+						LUTPlugin = "OCIOColorSpaceViewLUT",
+						ScaleMode = 1,
+					},
+					SideB = {
+						PrevCtrlInactiveColor = 4278255360,
+						PickW = 1,
+						PickH = 1,
+						PrevCtrlActiveColor = 4278190335,
+						Viewer = {
+							EnableLUTs = true,
+							LUTPlugin = "OCIOColorSpaceViewLUT",
+							NearZ = 0,
+							FitMarginX = 0,
+							FitMarginType = 0,
+							FarZ = -1000,
+							FitMarginY = 0
+						}
+					},
+					View3D = {
+						CamFront = {
+							Rotation = {
+								Y = 0,
+								X = 0,
+								Z = 0
+							},
+							Scale = 1,
+							Position = {
+								Y = 0,
+								X = 0,
+								Z = 0
+							}
+						},
+						CamLeft = {
+							Rotation = {
+								Y = 90,
+								X = 0,
+								Z = 0
+							},
+							Scale = 1,
+							Position = {
+								Y = 0,
+								X = 0,
+								Z = 0
+							}
+						},
+						CamPersp = {
+							Rotation = {
+								Y = -169.999984741211,
+								X = -169.799987792969,
+								Z = 0
+							},
+							Scale = 0.0220970865339041,
+							Position = {
+								Y = -2.42146420478821,
+								X = -2.8276252746582,
+								Z = 7.30723428726196
+							}
+						},
+						CamTop = {
+							Rotation = {
+								Y = 0,
+								X = 90,
+								Z = 0
+							},
+							Scale = 1,
+							Position = {
+								Y = 0,
+								X = 0,
+								Z = 0
+							}
+						},
+						CamRight = {
+							Rotation = {
+								Y = -90,
+								X = 0,
+								Z = 0
+							},
+							Scale = 1,
+							Position = {
+								Y = 0,
+								X = 0,
+								Z = 0
+							}
+						},
+						CameraName = "Perspective",
+					},
+				},
+				LeftView = {
+					Viewer = {
+						EnableLUTs = true,
+						LUTPlugin = "OCIOColorSpaceViewLUT",
+						Channel = 4294967295,
+						DoD = {
+							Show = true
+						},
+						ScaleMode = 1,
+					},
+					SideB = {
+						PrevCtrlInactiveColor = 4278255360,
+						PickW = 1,
+						PickH = 1,
+						PrevCtrlActiveColor = 4278190335,
+						Viewer = {
+							EnableLUTs = true,
+							LUTPlugin = "OCIOColorSpaceViewLUT",
+							NearZ = 0,
+							FitMarginX = 0,
+							FitMarginType = 0,
+							FarZ = -1000,
+							FitMarginY = 0
+						}
+					},
+					SubView = {
+						Enabled = false,
+						Navigator = false,
+						Magnifier = false,
+						ID = "GLMetadataViewer",
+						GLHistogramViewer = {
+							AutoBounds = true
+						},
+						GLMetadataViewer = {
+							AutoBounds = true
+						}
+					},
+					View3D = {
+						CamFront = {
+							Rotation = {
+								Y = 0,
+								X = 0,
+								Z = 0
+							},
+							Scale = 1,
+							Position = {
+								Y = 0,
+								X = 0,
+								Z = 0
+							}
+						},
+						CamLeft = {
+							Rotation = {
+								Y = 90,
+								X = 0,
+								Z = 0
+							},
+							Scale = 1,
+							Position = {
+								Y = 0,
+								X = 0,
+								Z = 0
+							}
+						},
+						CamRight = {
+							Rotation = {
+								Y = -90,
+								X = 0,
+								Z = 0
+							},
+							Scale = 1,
+							Position = {
+								Y = 0,
+								X = 0,
+								Z = 0
+							}
+						},
+						CamPersp = {
+							Rotation = {
+								Y = 323.799835205078,
+								X = 48.5999984741211,
+								Z = 0
+							},
+							Scale = 0.00427714083343744,
+							Position = {
+								Y = -4.22020483016968,
+								X = -0.921181619167328,
+								Z = 4.01260805130005
+							}
+						},
+						CamTop = {
+							Rotation = {
+								Y = 0,
+								X = 90,
+								Z = 0
+							},
+							Scale = 1,
+							Position = {
+								Y = 0,
+								X = 0,
+								Z = 0
+							}
+						},
+						CameraName = "Perspective"
+					},
+				},
+				View1 = {
+					Viewer = {
+						EnableLUTs = true,
+						LUTPlugin = "OCIOColorSpaceViewLUT",
+					},
+					PickW = 1,
+					PrevCtrlInactiveColor = 4278255360,
+					FullScreen = false,
+					AlwaysOnTop = true,
+					SideB = {
+						PrevCtrlInactiveColor = 4278255360,
+						PickW = 1,
+						PickH = 1,
+						PrevCtrlActiveColor = 4278190335,
+						Viewer = {
+							EnableLUTs = true,
+							LUTPlugin = "OCIOColorSpaceViewLUT",
+							NearZ = 0,
+							FitMarginX = 0,
+							FitMarginType = 0,
+							FarZ = -1000,
+							FitMarginY = 0
+						}
+					},
+					PickH = 1,
+					PrevCtrlActiveColor = 4278190335
+				},
+			},
+			FrameFormat = {
+				Rate = 24,
+				GuideRatio = 1.77777777777778,
+				DepthFull = 2,
+				DepthPreview = 2,
+				DepthInteractive = 2,
+			},
+			PolyKeyListDlg = {
+				Window = {
+					Left = 1238,
+					Top = 561
+				}
+			},
+			Unsorted = {
+				GlobalEnd = 573
+			},
+			Cluster = {
+				SlaveClasses = "all"
+			},
+			Paths = {
+			},
+			FlowView = {
+				Direction = 1,
+				GridSnap = true,
+			},
+			QuickTime = {
+				Quality = 90,
+			},
+			ChangeStrings = {
+				OldDoResolve = "Unchecked"
+			}
+		}
+	},
+}
+

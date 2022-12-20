@@ -202,7 +202,7 @@ def process():
             if convert_to_euler:
                 data.extend(quaternion_to_euler_angle(val[0], val[1], val[2], val[3]))
             else:
-                data.extend(val[0], val[1], val[2], val[3])
+                data.extend([val[0], val[1], val[2], val[3]])
             csv_rows.append(data)
 
             printProgressBar(i + 1, item_length, prefix = 'Processing gyro datas:', suffix = 'Complete', length = 50)
@@ -219,7 +219,7 @@ def process():
             if convert_to_euler:
                 data.extend(quaternion_to_euler_angle(item[1], item[2], item[3], item[4]))
             else:
-                data.extend(item[1], item[2], item[3], item[4])
+                data.extend([item[1], item[2], item[3], item[4]])
             csv_rows.append(data)
 
             printProgressBar(i + 1, num_frames, prefix = 'Processing gyro data:', suffix = 'Complete', length = 50)
@@ -235,4 +235,4 @@ def process():
         # writing the data rows 
         csvwriter.writerows(csv_rows)
     print("Done")
-process()                                   
+process()�����������������������������������

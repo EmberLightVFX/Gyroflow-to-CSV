@@ -11,6 +11,12 @@ Make sure to choose "including processed gyro data" when saving your project in 
 - Resolve (Free) or Resolve Studio or Fusion Studio v18.1+
 - Python v3.6 - v3.10+ is required to use this script.
 
+## Install:
+
+A prototype Reactor Package Manager "atom" package is included with the Gyroflow Fusion release.
+
+![Reactor Package Manager](Images/reactor.png)
+
 ## DragDrop Support
 
 The Gyroflow Fusion toolset supports drag and drop handling of .gyroflow files. This works by dragging the file from an Explorer/Finder/Nautilus desktop folder browsing location and dropping the file into the Fusion nodes view area.

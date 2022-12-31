@@ -1,9 +1,8 @@
 # Gyroflow to CSV
 
 Convert your [Gyroflow](https://gyroflow.xyz) stabilization to a CSV file.
-Make sure to choose "including processed gyro data" when exporting from Gyroflow.
-As default it saves out the rotations as Euler rotation (ZYX).
-It also saves out the data in your footages' native frame rate.
+
+Make sure to choose "including processed gyro data" when saving your project in Gyroflow. By default, Gyroflow saves out the rotations as Euler rotation (ZYX). It also saves out the data in your footages' native frame rate.
 
 ## CLI Script
 

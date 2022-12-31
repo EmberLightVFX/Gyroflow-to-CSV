@@ -29,9 +29,9 @@ Gyroflow To CSV: <a href="https://github.com/EmberLightVFX/GyroFlow-to-CSV">http
 	},
 
 	Deploy = {
-		"Bin/Gyrofllow Fusion/GyroFlowToCSV.py",
-		"Bin/Gyrofllow Fusion/LICENSE.md",
-		"Bin/Gyrofllow Fusion/README.md",
+		"Bin/Gyroflow Fusion/GyroFlowToCSV.py",
+		"Bin/Gyroflow Fusion/LICENSE.md",
+		"Bin/Gyroflow Fusion/README.md",
 		"Comp/Gyroflow Fusion/Gyroflow.comp",
 		"Comp/Gyroflow Fusion/Media/VID_20220615_110533_00_001.csv",
 		"Comp/Gyroflow Fusion/Media/VID_20220615_110533_00_001.gyroflow",
@@ -45,6 +45,7 @@ Gyroflow To CSV: <a href="https://github.com/EmberLightVFX/GyroFlow-to-CSV">http
 		"Docs/Gyroflow Fusion/Images/macro_nodes.png",
 		"Docs/Gyroflow Fusion/Images/panomap.png",
 		"Docs/Gyroflow Fusion/Images/panomap_stereo.png",
+		"Docs/Gyroflow Fusion/Images/reactor.png",
 		"Docs/Gyroflow Fusion/Images/rotation_channels.png",
 		"Docs/Gyroflow Fusion/Images/rotation_channels_connect_to_menu.png",
 		"Docs/Gyroflow Fusion/Images/select_tool.png",

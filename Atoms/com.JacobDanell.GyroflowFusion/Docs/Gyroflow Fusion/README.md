@@ -1,20 +1,23 @@
-# Gyroflow to CSV
+# GyroflowFusion
 
-"Gyroflow to CSV" is a Python script that converts your [Gyroflow](https://gyroflow.xyz) stabilization to a CSV file.
+**Video Stabilization Using Gyroscope Data**
 
-Make sure to choose "including processed gyro data" when exporting from Gyroflow. As default it saves out the rotations as Euler rotation (ZYX). It also saves out the data in your footages' native frame rate.
+## Overview:
+Converts your Gyroflow stabilization into a CSV file that is compatible with the "Vonk Ultra" data nodes in Fusion.
 
-Requirements:  
-- Resolve (free) or Resolve Studio or Fusion Studio
-- Python 3.6+ is required to use this script.
+Make sure to choose "including processed gyro data" when saving your project in Gyroflow. By default, Gyroflow saves out the rotations as Euler rotation (ZYX). It also saves out the data in your footages' native frame rate.
 
-# DragDrop Support
+## Requirements:
+- Resolve (Free) or Resolve Studio or Fusion Studio v18.1+
+- Python v3.6 - v3.10+ is required to use this script.
+
+## DragDrop Support
 
 The Gyroflow Fusion toolset supports drag and drop handling of .gyroflow files. This works by dragging the file from an Explorer/Finder/Nautilus desktop folder browsing location and dropping the file into the Fusion nodes view area.
 
 In this situation, the Gyro Fusion script is automatically launched and the "Gyroflow Filename" textfield is pre-filled in advance in the GUI.
 
-# Using the Script
+## Using the Script
 
 To run the script, open the Fusion Studio based "Script > Gyroflow Fusion > Gyroflow to CSV" Menu item.
 

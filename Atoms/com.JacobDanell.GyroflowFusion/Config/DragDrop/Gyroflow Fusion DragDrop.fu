@@ -82,7 +82,7 @@ if not rets.handled then
 
 			-- Load the pts file
 			print('\n[Gyroflow][Drag Drop][File] ' .. tostring(file))
-			comp:RunScript(app:MapPath('Scripts:/Comp/Gyroflow Fusion/Gyroflow To CSV.py'), {gyroflow_dragdrop = file})
+			comp:RunScript(app:MapPath('Scripts:/Comp/Gyroflow Fusion/Gyroflow Fusion.py'), {gyroflow_dragdrop = file})
 		end
 	end
 end

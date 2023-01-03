@@ -8,8 +8,11 @@ Converts your Gyroflow stabilization into a CSV file that is compatible with the
 
 Make sure to choose "including processed gyro data" when saving your project in Gyroflow. By default, Gyroflow saves out the rotations as Euler rotation (ZYX). It also saves out the data in your footages' native frame rate.
 
+
 Requirements:
-Resolve/Fusion v18.1+ and Python 3.6+ are required to use this script.
+- Resolve (Free) or Resolve Studio or Fusion Studio v18.1+
+- Python v3.6 - v3.10+ is required to use this script.
+
 
 Credits:
 Gyroflow to CSV Python script by Jacob Danell of Emberlight
@@ -633,7 +636,10 @@ app:AddConfig('GFWin', {
 
     # Display a File browsing dialog
     def BrowseButtonFunc(ev):
-        selectedPath = fu.RequestFile()
+        selectedPath = fu.RequestFile("", "", {
+            "FReqS_Filter": "Gyroflow Files (*.gyroflow)|*.gyroflow",
+            "FReqS_Title": "Choose a .gyroflow file"
+            })
         if selectedPath:
             itm['GyroflowPath'].Text = str(selectedPath)
     dlg.On.BrowseButton.Clicked = BrowseButtonFunc
